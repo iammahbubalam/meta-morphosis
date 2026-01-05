@@ -33,6 +33,25 @@ export default function Hero() {
         />
       </div>
 
+      {/* 1.5 FULL SCREEN ROCKET BEAM */}
+      <div className="absolute top-[45%] left-0 w-full h-2 overflow-visible z-20 pointer-events-none">
+          <motion.div
+            initial={{ left: "-40%", opacity: 0.7 }}
+            animate={{ left: "120%", opacity: 1 }}
+            transition={{ 
+                duration: 2.2, 
+                ease: "easeInOut",
+                repeat: 4, 
+                repeatDelay: 4, 
+                delay: 1.5 
+            }}
+            className="absolute top-0 w-[500px] h-[2px] bg-gradient-to-r from-transparent via-gold-500/50 to-white shadow-[0_0_80px_8px_rgba(245,158,11,0.8)] mix-blend-screen rounded-full blur-[0.5px]"
+          >
+             {/* Bright Comet Head - The "Rocket" Core */}
+             <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[120px] h-[4px] bg-white shadow-[0_0_40px_5px_#ffffff] rounded-full mix-blend-overlay" />
+          </motion.div>
+      </div>
+
       {/* 2. MAIN CONTENT - Exact Match to Screenshot */}
       <div className="container mx-auto px-6 relative z-10 text-center flex flex-col items-center">
         
