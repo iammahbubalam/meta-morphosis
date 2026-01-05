@@ -1,0 +1,94 @@
+"use client";
+
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+
+export default function Hero() {
+  return (
+    <section className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-void">
+      
+      {/* 1. BACKGROUND - Deep Midnight Blue with Subtle Pulse */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Base Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#020617] via-[#0B0E17] to-[#020617]" />
+        
+        {/* Elegant Breathing Glow (Right Side) */}
+        <motion.div 
+           animate={{
+             opacity: [0.3, 0.5, 0.3],
+             scale: [1, 1.1, 1],
+           }}
+           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+           className="absolute top-1/2 right-[-10%] -translate-y-1/2 w-[800px] h-[800px] bg-blue-900/10 rounded-full blur-[120px]"
+        />
+        
+        {/* Subtle Gold Hint (Left Side) - Kept very subtle as per "little moving animation" request */}
+         <motion.div 
+           animate={{
+             opacity: [0.1, 0.2, 0.1],
+           }}
+           transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+           className="absolute bottom-0 left-[-10%] w-[600px] h-[600px] bg-gold-500/5 rounded-full blur-[100px]"
+        />
+      </div>
+
+      {/* 2. MAIN CONTENT - Exact Match to Screenshot */}
+      <div className="container mx-auto px-6 relative z-10 text-center flex flex-col items-center">
+        
+        {/* Badge - [ GLOBAL ODOO ERP PARTNER ] */}
+        <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="mb-10 text-gray-500 font-mono text-xs tracking-[0.3em] uppercase"
+        >
+            [ GLOBAL ODOO ERP PARTNER ]
+        </motion.div>
+
+        {/* METAMORPHOSIS - Unified Single Line Silver Gradient */}
+        <div className="relative z-10">
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+              className="text-5xl sm:text-7xl md:text-8xl lg:text-[10rem] font-bold tracking-tighter leading-none select-none drop-shadow-2xl"
+            >
+              <span className="bg-clip-text text-transparent bg-gradient-to-b from-white via-gray-200 to-gray-500">
+                METAMORPHOSIS
+              </span>
+            </motion.h1>
+        </div>
+
+        {/* Subtitle */}
+        <motion.div
+           initial={{ opacity: 0 }}
+           animate={{ opacity: 1 }}
+           transition={{ duration: 1, delay: 0.6 }}
+           className="mt-12 max-w-3xl"
+        >
+            <p className="text-xl md:text-2xl text-gray-400 font-light leading-relaxed">
+              The Next Frontier of Enterprise Efficiency
+            </p>
+        </motion.div>
+
+        {/* CTA Buttons */}
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.8 }}
+            className="mt-16"
+        >
+            <Link
+                href="/audit"
+                className="group relative inline-flex items-center gap-2 px-8 py-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-all text-white font-medium"
+            >
+                Start Evolution
+                <ArrowRight size={16} className="text-gray-400 group-hover:text-white transition-colors" />
+            </Link>
+        </motion.div>
+
+      </div>
+    </section>
+  );
+}
