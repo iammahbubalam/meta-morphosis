@@ -1,6 +1,7 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
+import Narrative from "@/components/sections/Narrative";
 import TrustBar from "@/components/sections/TrustBar";
 import ProblemGrid from "@/components/sections/ProblemGrid";
 import SolutionShowcase from "@/components/sections/SolutionShowcase";
@@ -13,6 +14,7 @@ export default function Home() {
     <main className="min-h-screen bg-void text-white selection:bg-gold-500/30">
       <Navbar />
       <Hero />
+      <Narrative />
       <TrustBar />
       <ProblemGrid />
       <SolutionShowcase />

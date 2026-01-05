@@ -14,18 +14,17 @@ export default function TrustBar() {
       </div>
 
       <div className="relative flex overflow-x-hidden group">
-        <div className="animate-marquee whitespace-nowrap flex gap-16 px-16">
-          {/* Repeat logos to ensure infinite scroll illusion */}
-          {[...trustData.logos, ...trustData.logos, ...trustData.logos].map((logo, index) => (
-            <div
-              key={index}
-              className="inline-flex items-center justify-center opacity-40 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0 cursor-pointer"
-            >
-              {/* Using a placeholder div if image src is dummy, otherwise valid Image */}
-              <div className="h-8 w-32 bg-white/10 rounded flex items-center justify-center text-xs text-gray-500">
-                {logo.name} Logo
-              </div>
-            </div>
+        <div className="animate-marquee whitespace-nowrap flex gap-20 px-16 items-center">
+          {/* Repeat the logo image multiple times to create the infinite scroll */}
+          {[1, 2, 3, 4].map((index) => (
+             <div key={index} className="relative w-[300px] h-[80px] opacity-40 hover:opacity-100 transition-opacity duration-500 grayscale hover:grayscale-0">
+                 {/* eslint-disable-next-line @next/next/no-img-element */}
+                 <img 
+                   src="/images/logos/logo-set.png" 
+                   alt="Trusted Partner" 
+                   className="w-full h-full object-contain mix-blend-screen"
+                 />
+             </div>
           ))}
         </div>
       </div>
