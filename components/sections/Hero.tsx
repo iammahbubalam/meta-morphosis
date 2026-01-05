@@ -1,96 +1,163 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import { heroData } from "@/lib/data";
 
 export default function Hero() {
+  const { scrollY } = useScroll();
+  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+  const y = useTransform(scrollY, [0, 300], [0, 50]);
+
   return (
     <section className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-void">
       
-      {/* 1. THE FLUID BACKGROUND (The "Grok" Effect approximation) */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        {/* Layer 1: Gold Flow */}
+      {/* 1. LAYERED SMOKE/FLUID BACKGROUND */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
+        {/* Base Glow */}
+        <div className="absolute inset-0 bg-gradient-to-b from-void via-[#0B0F1D] to-void" />
+
+        {/* Large Fluid Shapes - Simulating Smoke with Mix-Blend-Mode */}
         <motion.div
            animate={{
-             x: ["-20%", "20%", "-20%"],
-             y: ["10%", "-10%", "10%"],
+             rotate: [0, 360],
              scale: [1, 1.2, 1],
-             rotate: [0, 10, 0]
+           }}
+           transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+           className="absolute w-[800px] h-[800px] rounded-full bg-gradient-to-r from-blue-900/30 to-purple-900/0 blur-[100px] mix-blend-screen opacity-40 top-[-20%] left-[-10%]"
+        />
+
+        <motion.div
+           animate={{
+             x: ["-10%", "10%", "-10%"],
+             y: ["-10%", "10%", "-10%"],
+             scale: [1, 1.3, 1],
            }}
            transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-           className="absolute w-[60vw] h-[60vw] bg-gold-600/20 rounded-full blur-[100px] mix-blend-screen opacity-60"
+           className="absolute w-[1000px] h-[600px] rounded-[100%] bg-gradient-to-r from-gold-600/10 via-gold-500/10 to-transparent blur-[120px] mix-blend-screen opacity-30"
+           style={{ top: '20%' }}
         />
-        {/* Layer 2: Deep Blue Flow */}
-        <motion.div
-           animate={{
-             x: ["20%", "-20%", "20%"],
-             y: ["-10%", "10%", "-10%"],
-             scale: [1.2, 1, 1.2],
-             rotate: [0, -10, 0]
-           }}
-           transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-           className="absolute w-[70vw] h-[50vw] bg-blue-900/40 rounded-full blur-[120px] mix-blend-screen opacity-50"
-        />
-        {/* Layer 3: Central Radiance (The "Beam") */}
+
+        {/* The "Smoke" Veil - Moving Gradient Textures */}
         <motion.div 
-            animate={{ opacity: [0.4, 0.7, 0.4], scaleX: [1, 1.5, 1] }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute w-[120vw] h-[200px] bg-gradient-to-r from-transparent via-gold-500/10 to-transparent blur-[80px]"
-            style={{ top: '50%', transform: 'translateY(-50%)' }}
+            animate={{ opacity: [0.3, 0.5, 0.3], x: [-50, 50, -50] }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(255,255,255,0.03),transparent_70%)] blur-[40px]" 
         />
+        
+        {/* Animated Particles/Sparks */}
+        <div className="absolute inset-0 opacity-20">
+            {Array.from({ length: 20 }).map((_, i) => (
+                <motion.div
+                    key={i}
+                    className="absolute bg-white rounded-full"
+                    initial={{
+                        x: Math.random() * 1000 - 500,
+                        y: Math.random() * 800 - 400,
+                        scale: Math.random() * 0.5 + 0.5,
+                        opacity: Math.random() * 0.5
+                    }}
+                    animate={{
+                        y: [null, Math.random() * -100],
+                        opacity: [null, 0]
+                    }}
+                    transition={{
+                        duration: Math.random() * 5 + 5,
+                        repeat: Infinity,
+                        ease: "linear",
+                        delay: Math.random() * 5
+                    }}
+                    style={{
+                        width: Math.random() * 2 + 1 + 'px',
+                        height: Math.random() * 2 + 1 + 'px',
+                        left: '50%',
+                        top: '50%'
+                    }}
+                />
+            ))}
+        </div>
       </div>
 
-      {/* 2. MINIMALIST CONTENT */}
-      <div className="container mx-auto px-6 relative z-10 text-center">
+      {/* 2. MAIN CONTENT (Interacting with the "Fog") */}
+      <motion.div style={{ opacity, y }} className="container mx-auto px-6 relative z-10 text-center">
         
-        {/* The "Grok" equivalent - Massive Text */}
-        <motion.h1
-          initial={{ opacity: 0, filter: "blur(20px)" }}
-          animate={{ opacity: 1, filter: "blur(0px)" }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
-          className="text-[15vw] md:text-[180px] font-bold leading-none tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-white/50 drop-shadow-[0_0_80px_rgba(245,158,11,0.2)] select-none"
-        >
-          META
-        </motion.h1>
-        
-         <motion.h1
-          initial={{ opacity: 0, filter: "blur(20px)" }}
-          animate={{ opacity: 1, filter: "blur(0px)" }}
-          transition={{ duration: 1.5, delay: 0.2, ease: "easeOut" }}
-          className="text-[10vw] md:text-[100px] font-bold leading-none tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-gold-300 via-gold-500 to-gold-700 mix-blend-overlay -mt-[2vw] md:-mt-10 select-none pb-10"
-        >
-          MORPHOSIS
-        </motion.h1>
-
-        {/* Input/CTA Area similar to Grok's input box */}
+        {/* Glass Badge */}
         <motion.div
-           initial={{ opacity: 0, y: 30 }}
-           animate={{ opacity: 1, y: 0 }}
-           transition={{ duration: 1, delay: 0.8 }}
-           className="max-w-2xl mx-auto mt-12 mb-20"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-gray-300 text-sm font-medium mb-12 shadow-lg"
         >
-            <div className="relative group p-[1px] rounded-full bg-gradient-to-r from-white/10 via-gold-500/50 to-white/10">
-                <div className="bg-void/90 backdrop-blur-xl rounded-full px-8 py-4 flex items-center justify-between gap-4">
-                    <span className="text-gray-400 text-lg">Ready to transform your business?</span>
-                    <Link href="/audit" className="p-2 rounded-full bg-white/10 hover:bg-gold-500 hover:text-white transition-colors">
-                        <ArrowRight size={20} />
-                    </Link>
-                </div>
-            </div>
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-gold-500"></span>
+          </span>
+          Global Odoo ERP Partner
         </motion.div>
 
-      </div>
+        {/* UNIFIED MASSIVE TITLE */}
+        <div className="relative mb-12">
+             <motion.h1
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              className="text-6xl md:text-9xl font-bold tracking-tighter leading-none text-white select-none"
+            >
+              META
+            </motion.h1>
+            <motion.h1
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+              className="text-6xl md:text-9xl font-bold tracking-tighter leading-none text-transparent bg-clip-text bg-gradient-to-r from-gold-300 via-gold-500 to-gold-700 select-none pb-4"
+            >
+              MORPHOSIS
+            </motion.h1>
+            
+            {/* Glow backing for text */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gold-500/10 blur-[100px] -z-10" />
+        </div>
+
+        {/* Input-style CTA (x.ai inspired) */}
+        <motion.div
+           initial={{ opacity: 0, y: 20 }}
+           animate={{ opacity: 1, y: 0 }}
+           transition={{ duration: 0.8, delay: 0.6 }}
+           className="max-w-xl mx-auto"
+        >
+           <p className="text-xl text-gray-400 mb-8 font-light">
+             From chaos to clarity. The enterprise backbone for ambitious companies.
+           </p>
+
+           <div className="flex flex-col sm:flex-row items-center gap-4 justify-center">
+              <Link
+                href="/audit"
+                className="group px-8 py-4 rounded-full bg-white text-void font-bold text-lg hover:scale-105 transition-transform flex items-center gap-2 shadow-[0_0_40px_rgba(255,255,255,0.2)]"
+              >
+                Start Transformation
+                <ArrowRight size={20} className="text-gold-600" />
+              </Link>
+              <Link
+                href="/services"
+                className="px-8 py-4 rounded-full border border-white/10 text-gray-300 hover:text-white hover:bg-white/5 transition-colors"
+               >
+                 View Solutions
+               </Link>
+           </div>
+        </motion.div>
+
+      </motion.div>
       
-       {/* Bottom Text */}
+       {/* Bottom Scroll Indicator */}
        <motion.div 
          initial={{ opacity: 0 }}
          animate={{ opacity: 1 }}
-         transition={{ delay: 1.5, duration: 1 }}
-         className="absolute bottom-10 left-0 right-0 text-center"
+         transition={{ delay: 2, duration: 1 }}
+         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
        >
-          <p className="text-xs text-gray-500 uppercase tracking-[0.3em]">Orchestrating Business Excellence</p>
+          <div className="w-[1px] h-12 bg-gradient-to-b from-gold-500 to-transparent" />
+          <span className="text-[10px] uppercase tracking-[0.2em] text-gold-500/50">Scroll to Evolve</span>
        </motion.div>
     </section>
   );
