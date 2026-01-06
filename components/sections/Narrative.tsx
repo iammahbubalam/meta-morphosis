@@ -16,7 +16,7 @@ export default function Narrative() {
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
 
   return (
-    <section ref={containerRef} className="py-32 md:py-48 relative overflow-hidden">
+    <section ref={containerRef} className="py-32 md:py-48 relative overflow-hidden -mt-20 z-10">
       
       {/* Background Ambience with Generated Image */}
       <motion.div style={{ y: y }} className="absolute inset-0 z-0">

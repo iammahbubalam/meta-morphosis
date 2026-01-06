@@ -108,6 +108,10 @@ export default function Hero() {
         </motion.div>
 
       </div>
+
+      {/* 3. TRANSITION MASK - The "Void Split" */}
+      <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-void to-transparent z-20 pointer-events-none" />
+
     </section>
   );
 }
