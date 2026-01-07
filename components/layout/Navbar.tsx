@@ -49,7 +49,7 @@ export default function Navbar() {
 
           {/* Desktop Nav with Hover Mega Menu */}
           <div className="hidden md:flex items-center gap-8 h-full">
-            <Link href="/" className="text-sm font-medium text-gray-400 hover:text-white transition-colors py-4">Home</Link>
+            <Link href="/" className="text-sm font-medium text-gray-400 hover:text-gold-500 transition-colors py-4">Home</Link>
             
             <div 
                 className="h-full flex items-center"
@@ -58,15 +58,15 @@ export default function Navbar() {
             >
                 <button className={cn(
                     "text-sm font-medium transition-colors flex items-center gap-1 py-4 cursor-pointer",
-                    isMegaMenuOpen ? "text-white" : "text-gray-400 hover:text-white"
+                    isMegaMenuOpen ? "text-gold-500" : "text-gray-400 hover:text-gold-500"
                 )}>
                     Solutions
                     <span className={cn("w-1.5 h-1.5 rounded-full bg-gold-500 transition-opacity", isMegaMenuOpen ? "opacity-100" : "opacity-0")} />
                 </button>
             </div>
 
-            <Link href="/company" className="text-sm font-medium text-gray-400 hover:text-white transition-colors py-4">Company</Link>
-            <Link href="/resources" className="text-sm font-medium text-gray-400 hover:text-white transition-colors py-4">Resources</Link>
+            <Link href="/company" className="text-sm font-medium text-gray-400 hover:text-gold-500 transition-colors py-4">Company</Link>
+            <Link href="/resources" className="text-sm font-medium text-gray-400 hover:text-gold-500 transition-colors py-4">Resources</Link>
           </div>
  
            <div className="flex items-center gap-6">

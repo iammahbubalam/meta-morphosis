@@ -89,17 +89,17 @@ export default function MegaMenu({ isOpen }: MegaMenuProps) {
 function DetailLink({ href, title, desc, index }: { href: string, title: string, desc: string, index: number }) {
     return (
         <Link href={href} className="group block">
-            <h4 className="text-white text-base font-bold flex items-center gap-2 group-hover:text-gold-500 transition-colors">
+// In DetailLink
+            <h4 className="text-white text-base font-bold flex items-center gap-2 group-hover:text-gold-500 group-hover:drop-shadow-[0_0_8px_rgba(251,191,36,0.3)] transition-all">
                 {title} <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity ml-auto" />
             </h4>
-            <p className="text-gray-500 text-xs group-hover:text-gray-400 transition-colors">{desc}</p>
-        </Link>
-    )
-}
 
+// ...
+
+// In SimpleLink 
 function SimpleLink({ href, label }: { href: string, label: string }) {
     return (
-        <Link href={href} className="block text-gray-400 hover:text-white transition-colors text-sm font-medium">
+        <Link href={href} className="block text-gray-400 hover:text-gold-500 hover:drop-shadow-[0_0_5px_rgba(251,191,36,0.5)] transition-all text-sm font-medium">
             {label}
         </Link>
     )

@@ -125,8 +125,8 @@ export default function Footer() {
                 © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
             </p>
             <div className="flex gap-8 text-xs text-gray-600">
-               <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
-               <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
+               <Link href="#" className="hover:text-gold-500 transition-colors">Privacy Policy</Link>
+               <Link href="#" className="hover:text-gold-500 transition-colors">Terms of Service</Link>
             </div>
         </div>
       </div>

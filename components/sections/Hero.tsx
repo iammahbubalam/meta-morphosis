@@ -1,8 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Globe, Zap, Shield, Play } from "lucide-react";
+import Image from "next/image";
+import { heroData } from "@/lib/data";
 
 export default function Hero() {
   return (
@@ -96,14 +98,21 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.8 }}
-            className="mt-16"
+            className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-4" // Added flex container for buttons
         >
             <Link
                 href="/audit"
                 className="group relative inline-flex items-center gap-2 px-8 py-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-all text-white font-medium"
             >
-                Start Evolution
+                {heroData.cta.primary}
                 <ArrowRight size={16} className="text-gray-400 group-hover:text-white transition-colors" />
+            </Link>
+            <Link 
+                href="/services" 
+                className="group relative inline-flex items-center gap-2 px-8 py-3 rounded-full bg-white/5 border border-white/10 hover:bg-gold-500/10 hover:border-gold-500/50 hover:text-gold-500 transition-all text-white font-medium"
+              >
+                {heroData.cta.secondary}
+                <ArrowRight size={16} className="text-gray-400 group-hover:text-gold-500 transition-colors" />
             </Link>
         </motion.div>
 

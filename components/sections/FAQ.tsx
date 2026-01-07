@@ -17,16 +17,16 @@ export default function FAQ() {
           {faqData.map((item, i) => (
             <motion.div 
                key={i} 
-               initial={{ opacity: 0, y: 10 }}
+               initial={false} // Added initial={false}
                whileInView={{ opacity: 1, y: 0 }}
                viewport={{ once: true }}
-               className={`border rounded-2xl overflow-hidden transition-all duration-300 ${openIndex === i ? "border-gold-500/50 bg-white/[0.03]" : "border-white/10 bg-transparent hover:border-white/20"}`}
+               className={`border rounded-2xl overflow-hidden transition-all duration-300 ${openIndex === i ? "border-gold-500/50 bg-white/[0.03]" : "border-white/10 bg-transparent hover:border-gold-500/50"}`}
             >
               <button 
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="w-full flex justify-between items-center p-6 text-left"
+                className="w-full flex justify-between items-center p-6 text-left group" // Added 'group' class
               >
-                 <span className={`text-lg font-medium ${openIndex === i ? "text-white" : "text-gray-400 group-hover:text-white"}`}>
+                 <span className={`text-lg font-medium ${openIndex === i ? "text-white" : "text-gray-400 group-hover:text-gold-500"}`}>
                     {item.question}
                  </span>
                  <div className={`p-2 rounded-full ${openIndex === i ? "bg-gold-500 text-black" : "bg-white/5 text-gray-400"}`}>

@@ -87,7 +87,7 @@ function BentoCard({ data, index, className, isHero = false }: { data: any, inde
       onMouseMove={handleMouseMove}
       className={cn(
         "group relative rounded-2xl border border-white/5 bg-white/[0.02] overflow-hidden flex flex-col justify-between p-8 md:p-10",
-        "hover:border-white/10 transition-colors duration-500",
+        "hover:border-gold-500/50 hover:shadow-[0_0_30px_rgba(245,158,11,0.1)] transition-all duration-500",
         className
       )}
     >
@@ -98,7 +98,7 @@ function BentoCard({ data, index, className, isHero = false }: { data: any, inde
           background: useMotionTemplate`
             radial-gradient(
               650px circle at ${mouseX}px ${mouseY}px,
-              rgba(255, 255, 255, 0.06),
+              rgba(245, 158, 11, 0.08),
               transparent 80%
             )
           `,
@@ -111,14 +111,14 @@ function BentoCard({ data, index, className, isHero = false }: { data: any, inde
       {/* Content */}
       <div className="relative z-10">
         <div className={cn(
-          "mb-6 flex items-center justify-center rounded-xl bg-gradient-to-br from-white/5 to-white/0 border border-white/10 text-white/80 transition-transform duration-500 group-hover:scale-110 group-hover:text-red-400 group-hover:border-red-500/30",
+          "mb-6 flex items-center justify-center rounded-xl bg-gradient-to-br from-white/5 to-white/0 border border-white/10 text-white/80 transition-transform duration-500 group-hover:scale-110 group-hover:text-gold-500 group-hover:border-gold-500/30",
           isHero ? "w-16 h-16" : "w-14 h-14"
         )}>
           <data.icon size={isHero ? 32 : 24} strokeWidth={1.5} />
         </div>
         
         <h3 className={cn(
-          "font-bold text-white mb-3 group-hover:text-red-100 transition-colors duration-300",
+          "font-bold text-white mb-3 group-hover:text-gold-100 transition-colors duration-300",
           isHero ? "text-2xl md:text-3xl" : "text-xl md:text-2xl"
         )}>
           {data.title}
@@ -131,7 +131,7 @@ function BentoCard({ data, index, className, isHero = false }: { data: any, inde
 
       {/* Decorative "Warning" UI Elements */}
       <div className="absolute top-4 right-4 flex gap-1.5 opacity-20 group-hover:opacity-100 transition-opacity duration-500">
-         <div className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+         <div className="w-1.5 h-1.5 rounded-full bg-gold-500 animate-pulse" />
          <div className="w-1.5 h-1.5 rounded-full bg-white/20" />
          <div className="w-1.5 h-1.5 rounded-full bg-white/20" />
       </div>

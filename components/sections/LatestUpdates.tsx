@@ -13,7 +13,7 @@ export default function LatestUpdates() {
                 <h2 className="text-3xl font-bold mb-2">Latest From Metamorphosis</h2>
                 <p className="text-gray-400">Industry insights and company news.</p>
             </div>
-            <button className="text-gold-500 hover:text-white transition-colors flex items-center gap-2 mt-4 md:mt-0 group">
+            <button className="text-gold-500 hover:text-gold-400 hover:drop-shadow-[0_0_8px_rgba(251,191,36,0.5)] transition-all flex items-center gap-2 mt-4 md:mt-0 group">
                 View All <ArrowUpRight size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </button>
         </div>
