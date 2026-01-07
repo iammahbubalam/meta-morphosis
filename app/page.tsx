@@ -6,7 +6,10 @@ import TrustBar from "@/components/sections/TrustBar";
 import ProblemGrid from "@/components/sections/ProblemGrid";
 import SolutionShowcase from "@/components/sections/SolutionShowcase";
 import ThreeStepPlan from "@/components/sections/ThreeStepPlan";
-import Testimonials from "@/components/sections/Testimonials";
+import SuccessStories from "@/components/sections/SuccessStories";
+import ImpactStats from "@/components/sections/ImpactStats";
+import LatestUpdates from "@/components/sections/LatestUpdates";
+import FAQ from "@/components/sections/FAQ";
 import FinalCTA from "@/components/sections/FinalCTA";
 
 export default function Home() {
@@ -19,8 +22,11 @@ export default function Home() {
       <ProblemGrid />
       <SolutionShowcase />
       <ThreeStepPlan />
-      <Testimonials />
+      <SuccessStories />
+      <ImpactStats />
+      <LatestUpdates />
       <FinalCTA />
+      <FAQ />
       <Footer />
     </main>
   );

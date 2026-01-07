@@ -110,16 +110,71 @@ export const processData = {
 };
 
 export const testimonialsData = {
-    heading: "Success Stories",
-    items: [
-        {
-            quote: "Metamorphosis didn't just install software; they fixed our business logic. We are now scaling without the growing pains.",
-            author: "Tanvir Ahmed",
-            role: "CEO, TechFlow Bangladesh",
-            rating: 5
-        }
-    ]
-}
+  heading: "Success Stories",
+  subheading: "See how we're transforming industries across Bangladesh.",
+  items: [
+    {
+      id: 1,
+      video: "/videos/success-1.mp4", 
+      poster: "/placeholder-video.jpg",
+      author: "Adnan Khan",
+      role: "CTO, FinTex",
+      quote: "Metamorphosis cut our reporting time by 90%.",
+      stat: "90% Faster"
+    },
+    {
+      id: 2,
+      video: "/videos/success-2.mp4",
+      poster: "/placeholder-video.jpg",
+      author: "Sarah Ahmed",
+      role: "Ops Director, LogiChain",
+      quote: "Inventory accuracy went from 65% to 99% in weeks.",
+      stat: "99% Accuracy"
+    },
+    {
+      id: 3,
+      video: "/videos/success-3.mp4",
+      poster: "/placeholder-video.jpg",
+      author: "Rahim Uddin",
+      role: "CEO, BuildCorp",
+      quote: "Finally, I can see my entire business on one screen.",
+      stat: "100% Visibility"
+    }
+  ]
+};
+
+export const statsData = [
+  { value: "10M+", label: "Transactions Processed", suffix: "" },
+  { value: "50+", label: "Enterprise Users", suffix: "" },
+  { value: "99.9", label: "System Uptime", suffix: "%" },
+  { value: "24/7", label: "Local Support", suffix: "" },
+];
+
+export const updatesData = [
+   { date: "Oct 24", title: "Odoo 18 Migration Service Launched", category: "Service" },
+   { date: "Nov 02", title: "Metamorphosis Names Top ERP Partner", category: "Award" },
+   { date: "Nov 15", title: "New AI Forecasting Module Beta", category: "Product" },
+   { date: "Dec 01", title: "Expansion to Chittagong Office", category: "Company" },
+];
+
+export const faqData = [
+  {
+    question: "How long does implementation take?",
+    answer: "Typical timeline involves 2-4 weeks for Discovery, followed by 6-12 weeks for Implementation depending on complexity. We prioritize a 'Phase 1' go-live to get you value quickly."
+  },
+  {
+    question: "Do you provide local support in Bangladesh?",
+    answer: "Yes, we have a fully staffed team in Dhaka providing 24/7 on-site and remote support. No waiting for overseas time zones."
+  },
+  {
+    question: "Can you migrate data from Tally or Excel?",
+    answer: "Absolutely. We have specialized tools to clean, map, and import your historical data from legacy systems like Tally, Excel, or custom software."
+  },
+  {
+    question: "Is Odoo customizable?",
+    answer: "Odoo is open-source and highly modular. We can tailor every workflow to match your unique business processes without breaking upgradability."
+  },
+];
 
 export const ctaData = {
     heading: "Ready to Evolve?",

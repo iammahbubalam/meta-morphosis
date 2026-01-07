@@ -88,7 +88,7 @@ function StepNode({ step, index, Icon }: { step: any, index: number, Icon: Lucid
     >
       {/* CENTER NODE (The connection point) */}
       <div className="absolute left-[20px] md:left-1/2 top-0 md:top-1/2 -translate-x-1/2 -translate-y-0 md:-translate-y-1/2 z-20">
-         <div className="w-10 h-10 rounded-full bg-void border-2 border-white/20 flex items-center justify-center group overflow-hidden">
+         <div className="w-10 h-10 rounded-full bg-neutral-900 border-2 border-white/20 flex items-center justify-center group overflow-hidden shadow-lg">
             {/* Active Glow (triggered by scroll view) */}
             <motion.div 
               initial={{ scale: 0 }}
@@ -102,8 +102,8 @@ function StepNode({ step, index, Icon }: { step: any, index: number, Icon: Lucid
 
       {/* ICON CARD */}
       <div className={`flex-1 w-full pl-12 md:pl-0 flex ${isEven ? "md:justify-end" : "md:justify-start"}`}>
-          <div className="relative w-24 h-24 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm flex items-center justify-center group hover:border-gold-500/50 transition-colors duration-500">
-             <div className="absolute inset-0 bg-gold-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+          <div className="relative w-24 h-24 rounded-2xl bg-neutral-900/80 border border-white/20 backdrop-blur-md flex items-center justify-center group hover:border-gold-500/50 transition-all duration-500 shadow-2xl z-10">
+             <div className="absolute inset-0 bg-gold-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
              <Icon className="w-10 h-10 text-gold-500 group-hover:scale-110 transition-transform duration-500" />
              
              {/* Connecting Line to Center (Desktop only) */}
@@ -114,9 +114,6 @@ function StepNode({ step, index, Icon }: { step: any, index: number, Icon: Lucid
       {/* TEXT CONTENT */}
       <div className={`flex-1 w-full pl-12 md:pl-0 ${!isEven ? "md:text-right" : "md:text-left"}`}>
          <div className="relative">
-             <span className="text-8xl md:text-9xl font-bold text-white/5 absolute -top-12 md:-top-16 left-0 md:left-auto md:right-auto select-none pointer-events-none">
-               {step.number}
-             </span>
              <h3 className="text-2xl md:text-4xl font-bold text-white mb-4 relative z-10">
                {step.title}
              </h3>

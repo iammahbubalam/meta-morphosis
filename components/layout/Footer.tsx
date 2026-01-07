@@ -1,63 +1,117 @@
 import Link from "next/link";
 import { siteConfig } from "@/lib/data";
+import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#05080f] border-t border-white/5 pt-16 pb-8">
+    <footer className="bg-[#05080f] border-t border-white/5 pt-20 pb-10">
       <div className="container mx-auto px-6">
-        <div className="grid md:grid-cols-4 gap-12 mb-16">
-          <div className="col-span-1">
-            <Link href="/" className="text-2xl font-bold tracking-tighter mb-6 block">
-              <span className="text-white">META</span>
-              <span className="text-gradient-gold">MORPHOSIS</span>
-            </Link>
-            <p className="text-gray-500 text-sm leading-relaxed">
-              {siteConfig.description}
-            </p>
-          </div>
-          
-          <div>
-            <h4 className="font-bold text-white mb-6">Services</h4>
-            <ul className="space-y-4 text-sm text-gray-500">
-                <li><Link href="#" className="hover:text-gold-400">Odoo Implementation</Link></li>
-                <li><Link href="#" className="hover:text-gold-400">Custom Development</Link></li>
-                <li><Link href="#" className="hover:text-gold-400">Migration Services</Link></li>
-                <li><Link href="#" className="hover:text-gold-400">Corporate Training</Link></li>
-            </ul>
-          </div>
+        
+        {/* Top Section: CTA & Brand */}
+        <div className="flex flex-col md:flex-row justify-between items-start mb-20 pb-12 border-b border-white/5">
+             <div className="max-w-md">
+                <Link href="/" className="text-3xl font-bold tracking-tighter mb-6 block">
+                  <span className="text-white">META</span>
+                  <span className="text-gradient-gold">MORPHOSIS</span>
+                </Link>
+                <p className="text-gray-400 text-lg leading-relaxed mb-8">
+                  Empowering Bangladeshi enterprises with world-class Odoo ERP solutions. 
+                  Transforming chaos into clarity, one business at a time.
+                </p>
+                <div className="flex gap-4">
+                  <SocialIcon Icon={Facebook} />
+                  <SocialIcon Icon={Twitter} />
+                  <SocialIcon Icon={Linkedin} />
+                  <SocialIcon Icon={Instagram} />
+                </div>
+             </div>
+             
+             <div className="mt-12 md:mt-0">
+                <h3 className="text-xl font-bold text-white mb-4">Ready to start?</h3>
+                <Link 
+                  href="/audit" 
+                  className="inline-flex items-center justify-center px-8 py-3 bg-white text-black font-bold rounded-lg hover:bg-gold-500 transition-colors"
+                >
+                  Book Free Audit
+                </Link>
+             </div>
+        </div>
 
+        {/* Middle Section: Links */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 mb-20">
+           {/* Column 1 */}
            <div>
-            <h4 className="font-bold text-white mb-6">Company</h4>
+            <h4 className="font-bold text-white mb-8">Services</h4>
             <ul className="space-y-4 text-sm text-gray-500">
-                <li><Link href="#" className="hover:text-gold-400">About Us</Link></li>
-                <li><Link href="#" className="hover:text-gold-400">Success Stories</Link></li>
-                <li><Link href="#" className="hover:text-gold-400">Careers</Link></li>
-                <li><Link href="#" className="hover:text-gold-400">Contact</Link></li>
+                <FooterLink href="#">Odoo Implementation</FooterLink>
+                <FooterLink href="#">Custom Development</FooterLink>
+                <FooterLink href="#">Legacy Migration</FooterLink>
+                <FooterLink href="#">Corporate Training</FooterLink>
             </ul>
           </div>
 
-          <div>
-             <h4 className="font-bold text-white mb-6">Contact</h4>
+           {/* Column 2 */}
+           <div>
+            <h4 className="font-bold text-white mb-8">Company</h4>
+            <ul className="space-y-4 text-sm text-gray-500">
+                <FooterLink href="#">About Us</FooterLink>
+                <FooterLink href="#">Success Stories</FooterLink>
+                <FooterLink href="#">Careers</FooterLink>
+                <FooterLink href="#">Partners</FooterLink>
+            </ul>
+          </div>
+
+           {/* Column 3 */}
+           <div>
+            <h4 className="font-bold text-white mb-8">Resources</h4>
+            <ul className="space-y-4 text-sm text-gray-500">
+                <FooterLink href="#">Blog</FooterLink>
+                <FooterLink href="#">Odoo Documentation</FooterLink>
+                <FooterLink href="#">Community Forum</FooterLink>
+                <FooterLink href="#">Developer API</FooterLink>
+            </ul>
+          </div>
+
+           {/* Column 4 */}
+           <div>
+             <h4 className="font-bold text-white mb-8">Contact</h4>
              <ul className="space-y-4 text-sm text-gray-500">
                 <li>{siteConfig.contact.address}</li>
-                <li>{siteConfig.contact.email}</li>
-                <li>{siteConfig.contact.phone}</li>
+                <li className="text-white">{siteConfig.contact.email}</li>
+                <li className="text-white">{siteConfig.contact.phone}</li>
              </ul>
           </div>
         </div>
 
-        <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        {/* Bottom Section: Copyright */}
+        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-xs text-gray-600">
                 © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
             </p>
-            <div className="flex gap-4">
-                {/* Social placeholders */}
-                <div className="w-8 h-8 rounded-full bg-white/5" />
-                <div className="w-8 h-8 rounded-full bg-white/5" />
-                <div className="w-8 h-8 rounded-full bg-white/5" />
+            <div className="flex gap-8 text-xs text-gray-600">
+               <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
+               <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
             </div>
         </div>
       </div>
     </footer>
   );
+}
+
+function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <li>
+      <Link href={href} className="hover:text-gold-500 transition-colors block">
+        {children}
+      </Link>
+    </li>
+  );
+}
+
+function SocialIcon({ Icon }: { Icon: any }) {
+  return (
+    <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-gold-500 hover:text-black transition-all">
+      <Icon size={18} />
+    </a>
+  )
 }
