@@ -102,6 +102,13 @@ function VideoCard({ story }: { story: any }) {
     >
        {/* Video Placeholder / Actual Video */}
        <div className="absolute inset-0 bg-neutral-800">
+         {/* 
+           Using a static div with a gradient for now as placeholders are not real. 
+           In production, uncomment video tag and ensure valid sources.
+         */}
+         <div className="w-full h-full bg-gradient-to-br from-neutral-800 to-neutral-900" />
+         
+         {/* 
          <video 
            ref={videoRef}
            src={story.video} 
@@ -110,7 +117,8 @@ function VideoCard({ story }: { story: any }) {
            playsInline
            loop
            muted
-         />
+         /> 
+         */}
        </div>
 
        {/* Overlay Content */}

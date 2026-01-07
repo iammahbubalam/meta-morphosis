@@ -55,6 +55,20 @@ export default function SolutionShowcase() {
   }, []);
 
 
+  // Glitch Effect - Generate random values on client side only to prevent hydration mismatch
+  const [glitches, setGlitches] = useState<{ top: string; left: string; width: string; height: string; animation: string }[]>([]);
+
+  useEffect(() => {
+    const newGlitches = Array.from({ length: 6 }).map(() => ({
+      top: `${Math.random() * 100}%`,
+      left: `${Math.random() * 100}%`,
+      width: `${Math.random() * 200 + 50}px`,
+      height: `${Math.random() * 50 + 2}px`,
+      animation: `pulse ${Math.random() * 2 + 0.5}s infinite`
+    }));
+    setGlitches(newGlitches);
+  }, []);
+
   return (
     <section className="py-24 md:py-32 bg-void relative overflow-hidden">
       
@@ -97,17 +111,11 @@ export default function SolutionShowcase() {
              {/* Chaos UI Elements */}
              <div className="absolute inset-0 flex items-center justify-center">
                 {/* Random Glitch Rectangles */}
-                {[...Array(6)].map((_, i) => (
+                {glitches.map((style, i) => (
                   <div 
                     key={`glitch-${i}`}
                     className="absolute bg-red-500/10 pointer-events-none"
-                    style={{
-                      top: `${Math.random() * 100}%`,
-                      left: `${Math.random() * 100}%`,
-                      width: `${Math.random() * 200 + 50}px`,
-                      height: `${Math.random() * 50 + 2}px`,
-                      animation: `pulse ${Math.random() * 2 + 0.5}s infinite`
-                    }}
+                    style={style}
                   />
                 ))}
 

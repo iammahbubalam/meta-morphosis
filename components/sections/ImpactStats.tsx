@@ -21,13 +21,25 @@ export default function ImpactStats() {
   );
 }
 
+// Helper to separate number from suffix (e.g., "10M+" -> { num: 10, suffix: "M+" })
+function parseStatValue(value: string) {
+  const match = value.match(/^([\d.]+)(.*)$/);
+  return {
+    num: match ? parseFloat(match[1]) : 0,
+    suffix: match ? match[2] : value,
+    hasDecimal: value.includes(".")
+  };
+}
+
 function CounterItem({ stat }: { stat: any }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const count = useMotionValue(0);
+  
+  const { num, suffix: valueSuffix, hasDecimal } = parseStatValue(stat.value);
+
   const rounded = useTransform(count, (latest: number) => {
-    // Check if original has decimal
-    if (stat.value.includes(".")) {
+    if (hasDecimal) {
        return latest.toFixed(1);
     }
     return Math.round(latest).toString();
@@ -35,15 +47,10 @@ function CounterItem({ stat }: { stat: any }) {
   
   useEffect(() => {
     if (isInView) {
-      // Extract number: "10M+" -> 10
-      const numericValue = parseFloat(stat.value.replace(/[^0-9.]/g, ""));
-      if (!isNaN(numericValue)) {
-        // Animate from 0 to value over 2 seconds
-        const controls = animate(count, numericValue, { duration: 2.5, ease: "circOut" });
-        return controls.stop;
-      }
+      const controls = animate(count, num, { duration: 2.5, ease: "circOut" });
+      return controls.stop;
     }
-  }, [isInView, stat.value, count]);
+  }, [isInView, num, count]);
 
   return (
     <div ref={ref} className="group">
@@ -54,7 +61,7 @@ function CounterItem({ stat }: { stat: any }) {
             {rounded}
         </motion.span>
         <span className="text-3xl md:text-4xl text-gold-500 font-medium ml-1">
-            {stat.suffix || stat.value.replace(/[0-9.]/g, "")}
+            {valueSuffix}{stat.suffix}
         </span>
       </div>
       <p className="text-sm md:text-base text-gray-400 font-medium tracking-widest uppercase group-hover:text-white transition-colors">

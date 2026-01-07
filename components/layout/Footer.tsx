@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { siteConfig } from "@/lib/data";
 import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
 
@@ -10,9 +11,18 @@ export default function Footer() {
         {/* Top Section: CTA & Brand */}
         <div className="flex flex-col md:flex-row justify-between items-start mb-20 pb-12 border-b border-white/5">
              <div className="max-w-md">
-                <Link href="/" className="text-3xl font-bold tracking-tighter mb-6 block">
-                  <span className="text-white">META</span>
-                  <span className="text-gradient-gold">MORPHOSIS</span>
+                <Link href="/" className="mb-6 block flex items-center gap-3">
+                   <Image 
+                      src="/icons/logo_mm.png" 
+                      alt="Metamorphosis Logo" 
+                      width={40} 
+                      height={40} 
+                      className="h-10 w-auto object-contain"
+                   />
+                   <span className="text-3xl font-bold tracking-tight font-outfit lowercase">
+                      <span className="text-orange-500">meta</span>
+                      <span className="text-amber-400">morphosis</span>
+                   </span>
                 </Link>
                 <p className="text-gray-400 text-lg leading-relaxed mb-8">
                   Empowering Bangladeshi enterprises with world-class Odoo ERP solutions. 

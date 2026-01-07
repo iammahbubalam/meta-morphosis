@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu } from "lucide-react";
 import { siteConfig, ctaData } from "@/lib/data";
 import { cn } from "@/lib/utils";
@@ -31,9 +32,19 @@ export default function Navbar() {
       >
         <div className="container mx-auto px-6 flex items-center justify-between relative">
           {/* Logo */}
-          <Link href="/" className="text-2xl font-bold tracking-tighter relative z-[60]">
-            <span className="text-white">META</span>
-            <span className="text-gradient-gold">MORPHOSIS</span>
+          <Link href="/" className="flex items-center gap-3 relative z-[60]">
+             <Image 
+                src="/icons/logo_mm.png" 
+                alt="Metamorphosis Logo" 
+                width={40} 
+                height={40} 
+                className="h-10 w-auto object-contain"
+                priority
+             />
+             <span className="text-3xl font-bold tracking-tight font-outfit lowercase">
+                <span className="text-orange-500">meta</span>
+                <span className="text-amber-400">morphosis</span>
+             </span>
           </Link>
 
           {/* Desktop Nav with Hover Mega Menu */}
