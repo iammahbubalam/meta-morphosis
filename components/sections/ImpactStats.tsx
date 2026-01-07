@@ -1,35 +1,67 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { motion, useInView, useMotionValue, useTransform, animate } from "framer-motion";
 import { statsData } from "@/lib/data";
 
 export default function ImpactStats() {
   return (
-    <section className="py-20 border-t border-white/5 bg-black/40 relative overflow-hidden">
-        {/* Ambient Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gold-500/5 blur-[100px] pointer-events-none" />
+    <section className="py-24 relative overflow-hidden bg-void">
+      {/* Background Ambience */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[50%] bg-gold-500/10 blur-[120px] rounded-full pointer-events-none" />
 
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 relative z-10">
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
           {statsData.map((stat, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="text-center"
-            >
-              <div className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-500 mb-2 font-mono tracking-tighter">
-                {stat.value}<span className="text-gold-500 text-3xl align-top">{stat.suffix}</span>
-              </div>
-              <p className="text-sm md:text-base text-gold-500/80 uppercase tracking-widest font-medium">
-                {stat.label}
-              </p>
-            </motion.div>
+             <CounterItem key={i} stat={stat} />
           ))}
         </div>
       </div>
     </section>
   );
 }
+
+function CounterItem({ stat }: { stat: any }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const count = useMotionValue(0);
+  const rounded = useTransform(count, (latest: number) => {
+    // Check if original has decimal
+    if (stat.value.includes(".")) {
+       return latest.toFixed(1);
+    }
+    return Math.round(latest).toString();
+  });
+  
+  useEffect(() => {
+    if (isInView) {
+      // Extract number: "10M+" -> 10
+      const numericValue = parseFloat(stat.value.replace(/[^0-9.]/g, ""));
+      if (!isNaN(numericValue)) {
+        // Animate from 0 to value over 2 seconds
+        const controls = animate(count, numericValue, { duration: 2.5, ease: "circOut" });
+        return controls.stop;
+      }
+    }
+  }, [isInView, stat.value, count]);
+
+  return (
+    <div ref={ref} className="group">
+      <div className="flex justify-center items-baseline mb-2">
+        <motion.span 
+            className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-white via-gold-200 to-gold-600 drop-shadow-[0_0_20px_rgba(234,179,8,0.3)] tabular-nums tracking-tight"
+        >
+            {rounded}
+        </motion.span>
+        <span className="text-3xl md:text-4xl text-gold-500 font-medium ml-1">
+            {stat.suffix || stat.value.replace(/[0-9.]/g, "")}
+        </span>
+      </div>
+      <p className="text-sm md:text-base text-gray-400 font-medium tracking-widest uppercase group-hover:text-white transition-colors">
+        {stat.label}
+      </p>
+    </div>
+  )
+}
+
+

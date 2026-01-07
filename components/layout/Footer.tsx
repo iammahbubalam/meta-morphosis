@@ -37,48 +37,74 @@ export default function Footer() {
              </div>
         </div>
 
-        {/* Middle Section: Links */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 mb-20">
-           {/* Column 1 */}
+        {/* Middle Section: Links - Expanded to 5 Columns */}
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-20">
+           {/* Column 1: Solutions */}
+           <div>
+            <h4 className="font-bold text-white mb-8">Solutions</h4>
+            <ul className="space-y-3 text-sm text-gray-500">
+                <FooterLink href="#">Odoo ERP</FooterLink>
+                <FooterLink href="#">CRM & Sales</FooterLink>
+                <FooterLink href="#">Manufacturing (MRP)</FooterLink>
+                <FooterLink href="#">Inventory & WMS</FooterLink>
+                <FooterLink href="#">Accounting & Finance</FooterLink>
+                <FooterLink href="#">HR & Payroll</FooterLink>
+                <FooterLink href="#">eCommerce</FooterLink>
+            </ul>
+          </div>
+
+           {/* Column 2: Services */}
            <div>
             <h4 className="font-bold text-white mb-8">Services</h4>
-            <ul className="space-y-4 text-sm text-gray-500">
-                <FooterLink href="#">Odoo Implementation</FooterLink>
-                <FooterLink href="#">Custom Development</FooterLink>
+            <ul className="space-y-3 text-sm text-gray-500">
+                <FooterLink href="#">Full Implementation</FooterLink>
                 <FooterLink href="#">Legacy Migration</FooterLink>
+                <FooterLink href="#">Custom Development</FooterLink>
                 <FooterLink href="#">Corporate Training</FooterLink>
+                <FooterLink href="#">System Audit</FooterLink>
+                <FooterLink href="#">24/7 Support</FooterLink>
             </ul>
           </div>
 
-           {/* Column 2 */}
+           {/* Column 3: Company */}
            <div>
             <h4 className="font-bold text-white mb-8">Company</h4>
-            <ul className="space-y-4 text-sm text-gray-500">
-                <FooterLink href="#">About Us</FooterLink>
+            <ul className="space-y-3 text-sm text-gray-500">
+                <FooterLink href="#">About Metamorphosis</FooterLink>
                 <FooterLink href="#">Success Stories</FooterLink>
+                <FooterLink href="#">Our Methodology</FooterLink>
                 <FooterLink href="#">Careers</FooterLink>
-                <FooterLink href="#">Partners</FooterLink>
+                <FooterLink href="#">Partnership</FooterLink>
+                <FooterLink href="#">Press & Media</FooterLink>
             </ul>
           </div>
 
-           {/* Column 3 */}
+           {/* Column 4: Resources */}
            <div>
             <h4 className="font-bold text-white mb-8">Resources</h4>
-            <ul className="space-y-4 text-sm text-gray-500">
-                <FooterLink href="#">Blog</FooterLink>
+            <ul className="space-y-3 text-sm text-gray-500">
+                <FooterLink href="#">Industry Blog</FooterLink>
+                <FooterLink href="#">Whitepapers</FooterLink>
                 <FooterLink href="#">Odoo Documentation</FooterLink>
-                <FooterLink href="#">Community Forum</FooterLink>
                 <FooterLink href="#">Developer API</FooterLink>
+                <FooterLink href="#">Community Forum</FooterLink>
             </ul>
           </div>
 
-           {/* Column 4 */}
+           {/* Column 5: Legal & Contact */}
            <div>
-             <h4 className="font-bold text-white mb-8">Contact</h4>
-             <ul className="space-y-4 text-sm text-gray-500">
-                <li>{siteConfig.contact.address}</li>
-                <li className="text-white">{siteConfig.contact.email}</li>
-                <li className="text-white">{siteConfig.contact.phone}</li>
+             <h4 className="font-bold text-white mb-8">Connect</h4>
+             <ul className="space-y-3 text-sm text-gray-500 mb-8">
+                <FooterLink href="#">Contact Support</FooterLink>
+                <FooterLink href="#">Sales Inquiry</FooterLink>
+                <FooterLink href="#">Office Locations</FooterLink>
+             </ul>
+             
+             <h4 className="font-bold text-white mb-4">Legal</h4>
+             <ul className="space-y-3 text-sm text-gray-500">
+                <FooterLink href="#">Privacy Policy</FooterLink>
+                <FooterLink href="#">Terms of Service</FooterLink>
+                <FooterLink href="#">Security</FooterLink>
              </ul>
           </div>
         </div>
