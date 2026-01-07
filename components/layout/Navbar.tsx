@@ -2,14 +2,14 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-import { siteConfig, navLinks, ctaData } from "@/lib/data";
+import { Menu } from "lucide-react";
+import { siteConfig, ctaData } from "@/lib/data";
 import { cn } from "@/lib/utils";
+import MegaMenu from "./MegaMenu";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,79 +20,69 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled
-          ? "bg-void/80 backdrop-blur-md border-b border-white/5 py-4"
-          : "bg-transparent py-6"
-      )}
-    >
-      <div className="container mx-auto px-6 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="text-2xl font-bold tracking-tighter">
-          <span className="text-white">META</span>
-          <span className="text-gradient-gold">MORPHOSIS</span>
-        </Link>
-
-        {/* Desktop Nav - Hidden for now as per user request */}
-        <div className="hidden md:flex items-center gap-8">
-          {/* {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-gray-300 hover:text-white transition-colors relative group"
-            >
-              {link.label}
-              <span className="absolute -bottom-1 left-1/2 w-0 h-[2px] bg-gold-500 transition-all duration-300 group-hover:w-full group-hover:left-0" />
-            </Link>
-          ))} */}
-          <Link
-            href="/contact"
-            className="px-6 py-2.5 rounded-full border border-gold-500/30 text-gold-400 text-sm font-semibold hover:bg-gold-500/10 hover:border-gold-500 transition-all"
-          >
-            {ctaData.button}
+    <>
+      <nav
+        className={cn(
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+          isScrolled
+            ? "bg-void/80 backdrop-blur-md border-b border-white/5 py-4"
+            : "bg-transparent py-6"
+        )}
+      >
+        <div className="container mx-auto px-6 flex items-center justify-between relative">
+          {/* Logo */}
+          <Link href="/" className="text-2xl font-bold tracking-tighter relative z-[60]">
+            <span className="text-white">META</span>
+            <span className="text-gradient-gold">MORPHOSIS</span>
           </Link>
+
+          {/* Desktop Nav with Hover Mega Menu */}
+          <div className="hidden md:flex items-center gap-8 h-full">
+            <Link href="/" className="text-sm font-medium text-gray-400 hover:text-white transition-colors py-4">Home</Link>
+            
+            <div 
+                className="h-full flex items-center"
+                onMouseEnter={() => setIsMegaMenuOpen(true)}
+                onMouseLeave={() => setIsMegaMenuOpen(false)}
+            >
+                <button className={cn(
+                    "text-sm font-medium transition-colors flex items-center gap-1 py-4 cursor-pointer",
+                    isMegaMenuOpen ? "text-white" : "text-gray-400 hover:text-white"
+                )}>
+                    Solutions
+                    <span className={cn("w-1.5 h-1.5 rounded-full bg-gold-500 transition-opacity", isMegaMenuOpen ? "opacity-100" : "opacity-0")} />
+                </button>
+            </div>
+
+            <Link href="/company" className="text-sm font-medium text-gray-400 hover:text-white transition-colors py-4">Company</Link>
+            <Link href="/resources" className="text-sm font-medium text-gray-400 hover:text-white transition-colors py-4">Resources</Link>
+          </div>
+ 
+           <div className="flex items-center gap-6">
+             {/* CTA Button */}
+             <Link
+               href="/contact"
+               className="hidden md:block px-6 py-2.5 rounded-full border border-gold-500/30 text-gold-400 text-sm font-semibold hover:bg-gold-500/10 hover:border-gold-500 transition-all"
+             >
+               {ctaData.button}
+             </Link>
+ 
+             {/* Mobile Menu Trigger (Simple) */}
+             <button className="md:hidden text-white">
+                <Menu size={24} />
+             </button>
+           </div>
         </div>
 
-        {/* Mobile Toggle */}
-        <button
-          className="md:hidden text-white"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        {/* Mega Menu Rendered Absolute to Navbar */}
+        <div 
+          className="hidden md:block absolute top-full left-0 w-full"
+          onMouseEnter={() => setIsMegaMenuOpen(true)}
+          onMouseLeave={() => setIsMegaMenuOpen(false)}
         >
-          {isMobileMenuOpen ? <X /> : <Menu />}
-        </button>
-      </div>
-
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 right-0 bg-void border-b border-white/10 p-6 md:hidden flex flex-col gap-4 shadow-2xl"
-          >
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-lg font-medium text-gray-300 hover:text-gold-400"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <Link
-              href="/contact"
-              className="mt-4 w-full text-center px-6 py-3 rounded-md bg-gold-gradient text-white font-bold"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              {ctaData.button}
-            </Link>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </nav>
+            <MegaMenu isOpen={isMegaMenuOpen} />
+        </div>
+      </nav>
+    </>
   );
 }
