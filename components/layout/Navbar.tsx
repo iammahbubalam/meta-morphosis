@@ -49,7 +49,7 @@ export default function Navbar() {
 
           {/* Desktop Nav with Hover Mega Menu */}
           <div className="hidden md:flex items-center gap-8 h-full">
-            <Link href="/" className="text-sm font-medium text-gray-400 hover:text-gold-500 transition-colors py-4">Home</Link>
+            <Link href="/" className="text-sm font-medium text-gray-400 hover:text-amber-500 hover:scale-110 transition-all duration-300 py-4">Home</Link>
             
             <div 
                 className="h-full flex items-center"
@@ -57,16 +57,16 @@ export default function Navbar() {
                 onMouseLeave={() => setIsMegaMenuOpen(false)}
             >
                 <button className={cn(
-                    "text-sm font-medium transition-colors flex items-center gap-1 py-4 cursor-pointer",
-                    isMegaMenuOpen ? "text-gold-500" : "text-gray-400 hover:text-gold-500"
+                    "text-sm font-medium transition-all duration-300 flex items-center gap-1 py-4 cursor-pointer",
+                    isMegaMenuOpen ? "text-amber-500 scale-110" : "text-gray-400 hover:text-amber-500 hover:scale-110"
                 )}>
                     Solutions
-                    <span className={cn("w-1.5 h-1.5 rounded-full bg-gold-500 transition-opacity", isMegaMenuOpen ? "opacity-100" : "opacity-0")} />
+                    <span className={cn("w-1.5 h-1.5 rounded-full bg-amber-500 transition-opacity", isMegaMenuOpen ? "opacity-100" : "opacity-0")} />
                 </button>
             </div>
 
-            <Link href="/company" className="text-sm font-medium text-gray-400 hover:text-gold-500 transition-colors py-4">Company</Link>
-            <Link href="/resources" className="text-sm font-medium text-gray-400 hover:text-gold-500 transition-colors py-4">Resources</Link>
+            <Link href="/company" className="text-sm font-medium text-gray-400 hover:text-amber-500 hover:scale-110 transition-all duration-300 py-4">Company</Link>
+            <Link href="/resources" className="text-sm font-medium text-gray-400 hover:text-amber-500 hover:scale-110 transition-all duration-300 py-4">Resources</Link>
           </div>
  
            <div className="flex items-center gap-6">
