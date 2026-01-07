@@ -44,7 +44,7 @@ export default function Hero() {
                 duration: 2.2, 
                 ease: "easeInOut",
                 repeat: 4, 
-                repeatDelay: 4, 
+                repeatDelay: 2, 
                 delay: 1.5 
             }}
             className="absolute top-0 w-[500px] h-[2px] bg-gradient-to-r from-transparent via-gold-500/50 to-white shadow-[0_0_80px_8px_rgba(245,158,11,0.8)] mix-blend-screen rounded-full blur-[0.5px]"
