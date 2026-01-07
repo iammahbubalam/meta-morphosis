@@ -40,7 +40,7 @@ export default function Footer() {
                 <h3 className="text-xl font-bold text-white mb-4">Ready to start?</h3>
                 <Link 
                   href="/audit" 
-                  className="inline-flex items-center justify-center px-8 py-3 bg-white text-black font-bold rounded-lg hover:bg-gold-500 transition-colors"
+                  className="inline-flex items-center justify-center px-8 py-3 bg-white text-black font-bold rounded-lg hover:bg-amber-500 hover:scale-105 hover:shadow-[0_0_20px_rgba(245,158,11,0.4)] transition-all duration-300"
                 >
                   Book Free Audit
                 </Link>
@@ -125,8 +125,8 @@ export default function Footer() {
                 © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
             </p>
             <div className="flex gap-8 text-xs text-gray-600">
-               <Link href="#" className="hover:text-gold-500 transition-colors">Privacy Policy</Link>
-               <Link href="#" className="hover:text-gold-500 transition-colors">Terms of Service</Link>
+               <Link href="#" className="hover:text-amber-500 hover:scale-105 transition-all duration-300">Privacy Policy</Link>
+               <Link href="#" className="hover:text-amber-500 hover:scale-105 transition-all duration-300">Terms of Service</Link>
             </div>
         </div>
       </div>
@@ -134,10 +134,11 @@ export default function Footer() {
   );
 }
 
+// Footer Link
 function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
     <li>
-      <Link href={href} className="hover:text-gold-500 transition-colors block">
+      <Link href={href} className="hover:text-amber-500 hover:translate-x-2 transition-all duration-300 block">
         {children}
       </Link>
     </li>
@@ -146,7 +147,7 @@ function FooterLink({ href, children }: { href: string; children: React.ReactNod
 
 function SocialIcon({ Icon }: { Icon: any }) {
   return (
-    <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-gold-500 hover:text-black transition-all">
+    <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-amber-500 hover:text-black hover:scale-110 hover:shadow-[0_0_15px_rgba(245,158,11,0.5)] transition-all duration-300">
       <Icon size={18} />
     </a>
   )

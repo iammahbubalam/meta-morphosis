@@ -102,17 +102,17 @@ export default function Hero() {
         >
             <Link
                 href="/audit"
-                className="group relative inline-flex items-center gap-2 px-8 py-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-all text-white font-medium"
+                className="group relative inline-flex items-center gap-2 px-8 py-3 rounded-full bg-gradient-to-r from-amber-400 to-amber-600 text-black font-bold hover:scale-105 hover:shadow-[0_0_20px_rgba(245,158,11,0.5)] transition-all duration-300"
             >
                 {heroData.cta.primary}
-                <ArrowRight size={16} className="text-gray-400 group-hover:text-white transition-colors" />
+                <ArrowRight size={16} className="text-black/70 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link 
                 href="/services" 
-                className="group relative inline-flex items-center gap-2 px-8 py-3 rounded-full bg-white/5 border border-white/10 hover:bg-gold-500/10 hover:border-gold-500/50 hover:text-gold-500 transition-all text-white font-medium"
+                className="group relative inline-flex items-center gap-2 px-8 py-3 rounded-full bg-white/5 border border-white/10 hover:bg-amber-500/10 hover:border-amber-500 hover:text-amber-500 hover:scale-105 hover:shadow-[0_0_15px_rgba(245,158,11,0.2)] transition-all duration-300 text-white font-medium"
               >
                 {heroData.cta.secondary}
-                <ArrowRight size={16} className="text-gray-400 group-hover:text-gold-500 transition-colors" />
+                <ArrowRight size={16} className="text-gray-400 group-hover:text-amber-500 group-hover:translate-x-1 transition-all" />
             </Link>
         </motion.div>
 
