@@ -65,6 +65,16 @@ export const problemData = {
       title: "The Blind Pilot",
       description: "Making crucial business decisions based on data that is weeks old.",
     },
+    {
+      icon: Zap,
+      title: "Inventory Black Hole",
+      description: "Stock vanishing due to lack of real-time tracking and theft visibility.",
+    },
+    {
+      icon: BarChart3,
+      title: "Financial Fog",
+      description: "No clear picture of P&L until the end of the month. Flying blind financially.",
+    },
   ]
 };
 

@@ -2,92 +2,117 @@
 
 import { motion } from "framer-motion";
 
+const clients = [
+  { name: "Bangladesh Armed Service Board", industry: "Defense" },
+  { name: "Alauddin Textile Mills", industry: "Manufacturing" },
+  { name: "Aristo Food Export", industry: "Food & Beverage" },
+  { name: "Baatighar Publishers", industry: "Publishing" },
+  { name: "University Press Limited", industry: "Publishing" },
+  { name: "Cross World", industry: "Logistics" },
+  { name: "Easy Dhaka", industry: "Transportation" },
+  { name: "Ekattor Media", industry: "Media" },
+  { name: "Rajkumar Textile", industry: "Manufacturing" }
+];
+
 export default function TrustBar() {
   return (
-    <section className="py-24 bg-void relative overflow-hidden">
+    <section className="pt-10 pb-20 md:pt-16 md:pb-32 relative overflow-hidden">
       
-      {/* Background: Subtle gradient mesh to give depth behind cards */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_-20%,_rgba(251,191,36,0.1),_transparent_70%)]" />
-
-      <div className="container mx-auto px-6 mb-16 text-center relative z-10">
-        <motion.h3 
+      <div className="container mx-auto px-6 relative z-10 mb-8">
+        
+        {/* Header */}
+        <motion.div 
+          className="text-center px-4"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-2xl md:text-3xl font-bold text-white mb-2"
+          transition={{ duration: 0.8 }}
         >
-          Powering Bangladesh's <span className="text-gradient-gold">New Economy</span>
-        </motion.h3>
-        <p className="text-gray-500 text-sm uppercase tracking-widest">
-          Trusted by 50+ Enterprises
-        </p>
-      </div>
-
-      {/* Card Stream Container */}
-      <div className="relative flex overflow-hidden py-4"> {/* py-4 to allow shadow/glow space */}
-        
-        {/* Gradient Masks for smooth entry/exit */}
-        <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-void to-transparent z-20" />
-        <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-void to-transparent z-20" />
-
-        <motion.div
-          className="flex gap-6 whitespace-nowrap px-4"
-          animate={{
-            x: [0, -1000], 
-          }}
-          transition={{
-            x: {
-              repeat: Infinity,
-              repeatType: "loop",
-              duration: 30,
-              ease: "linear",
-            },
-          }}
-        >
-          {/* Loop multiple times for seamlessness */}
-          {[1, 2, 3, 4].map((groupIndex) => (
-             <div key={groupIndex} className="flex gap-6">
-                 {/* Card 1: BASB */}
-                 <div className="w-[200px] h-[120px] rounded-xl bg-white/5 border border-white/10 flex items-center justify-center p-6 relative group hover:border-gold-500/50 hover:bg-gold-500/5 transition-all duration-500 cursor-default">
-                    <div className="absolute inset-0 bg-gradient-to-br from-gold-500/0 to-gold-500/0 group-hover:from-gold-500/5 group-hover:to-gold-500/0 transition-all duration-500 rounded-xl" />
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src="/images/logos/clients-set-1.png" className="w-full h-full object-contain object-left opacity-70 group-hover:opacity-100 grayscale group-hover:grayscale-0 transition-all duration-500 brightness-150" style={{ objectFit: 'cover', objectPosition: '0 0', width: '200%', maxWidth: 'none' }} alt="BASB" />
-                 </div>
-
-                 {/* Card 2: Alauddin */}
-                 <div className="w-[200px] h-[120px] rounded-xl bg-white/5 border border-white/10 flex items-center justify-center p-6 relative group hover:border-gold-500/50 hover:bg-gold-500/5 transition-all duration-500 cursor-default">
-                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src="/images/logos/clients-set-1.png" className="w-full h-full object-contain opacity-70 group-hover:opacity-100 grayscale group-hover:grayscale-0 transition-all duration-500 brightness-150" style={{ objectFit: 'cover', objectPosition: '33% 0', width: '200%', maxWidth: 'none' }} alt="Alauddin" />
-                 </div>
-
-                 {/* Card 3: Aristo */}
-                 <div className="w-[200px] h-[120px] rounded-xl bg-white/5 border border-white/10 flex items-center justify-center p-6 relative group hover:border-gold-500/50 hover:bg-gold-500/5 transition-all duration-500 cursor-default">
-                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src="/images/logos/clients-set-1.png" className="w-full h-full object-contain opacity-70 group-hover:opacity-100 grayscale group-hover:grayscale-0 transition-all duration-500 brightness-150" style={{ objectFit: 'cover', objectPosition: '66% 0', width: '200%', maxWidth: 'none' }} alt="Aristo" />
-                 </div>
-
-                 {/* Card 4: Baatighar */}
-                 <div className="w-[200px] h-[120px] rounded-xl bg-white/5 border border-white/10 flex items-center justify-center p-6 relative group hover:border-gold-500/50 hover:bg-gold-500/5 transition-all duration-500 cursor-default">
-                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src="/images/logos/clients-set-1.png" className="w-full h-full object-contain opacity-70 group-hover:opacity-100 grayscale group-hover:grayscale-0 transition-all duration-500 brightness-150" style={{ objectFit: 'cover', objectPosition: '100% 0', width: '200%', maxWidth: 'none' }} alt="Baatighar" />
-                 </div>
-
-                 {/* Card 5: UPL */}
-                 <div className="w-[200px] h-[120px] rounded-xl bg-white/5 border border-white/10 flex items-center justify-center p-6 relative group hover:border-gold-500/50 hover:bg-gold-500/5 transition-all duration-500 cursor-default">
-                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src="/images/logos/clients-set-2.png" className="w-full h-full object-contain opacity-70 group-hover:opacity-100 grayscale group-hover:grayscale-0 transition-all duration-500 brightness-150" style={{ objectFit: 'cover', objectPosition: '0 0', width: '200%', maxWidth: 'none' }} alt="UPL" />
-                 </div>
-
-                 {/* Card 6: Cross World */}
-                 <div className="w-[200px] h-[120px] rounded-xl bg-white/5 border border-white/10 flex items-center justify-center p-6 relative group hover:border-gold-500/50 hover:bg-gold-500/5 transition-all duration-500 cursor-default">
-                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src="/images/logos/clients-set-2.png" className="w-full h-full object-contain opacity-70 group-hover:opacity-100 grayscale group-hover:grayscale-0 transition-all duration-500 brightness-150" style={{ objectFit: 'cover', objectPosition: '25% 0', width: '200%', maxWidth: 'none' }} alt="Cross World" />
-                 </div>
-                 
-             </div>
-          ))}
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+            <motion.span
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              Powering Bangladesh's{" "}
+            </motion.span>
+            <motion.span 
+              className="relative inline-block text-amber-500"
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              animate={{
+                textShadow: [
+                  "0 0 20px rgba(245, 158, 11, 0.3)",
+                  "0 0 30px rgba(245, 158, 11, 0.5)",
+                  "0 0 20px rgba(245, 158, 11, 0.3)",
+                ]
+              }}
+            >
+              New Economy
+            </motion.span>
+          </h2>
+          <p className="text-gray-400 text-lg md:text-xl font-light max-w-2xl mx-auto">
+            Trusted by 50+ leading organizations across industries
+          </p>
         </motion.div>
       </div>
+
+      {/* Marquee Container */}
+      <div className="relative w-full border-y border-white/5 bg-white/2 backdrop-blur-[2px]">
+        
+        {/* Fade Masks */}
+        <div className="absolute left-0 top-0 bottom-0 w-24 md:w-32 z-10 bg-gradient-to-r from-void via-void/90 to-transparent pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 md:w-32 z-10 bg-gradient-to-l from-void via-void/90 to-transparent pointer-events-none" />
+
+        {/* Scrolling Track */}
+        <div className="flex overflow-hidden group">
+          <motion.div
+            className="flex gap-8 md:gap-12 items-center py-8 md:py-10 px-4"
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{
+              x: {
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 60,
+                ease: "linear",
+              },
+            }}
+          >
+            {/* Duplicated content for seamless loop */}
+            {[...clients, ...clients, ...clients, ...clients].map((client, index) => (
+              <div 
+                key={index} 
+                className="relative flex-shrink-0 w-[200px] md:w-[240px] group/item cursor-pointer"
+              >
+                {/* Logo Card with Border */}
+                <div className="relative h-[120px] rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm flex items-center justify-center p-8 transition-all duration-300 group-hover/item:border-amber-500/50 group-hover/item:bg-white/10 group-hover/item:-translate-y-1">
+                  
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img 
+                    src="/images/clients/71tv.webp" 
+                    alt={client.name}
+                    className="w-full h-full object-contain opacity-80 group-hover/item:opacity-100 transition-all duration-300 drop-shadow-md"
+                  />
+                  
+                  {/* Subtle Glow inside card */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-amber-500/0 to-amber-500/0 group-hover/item:from-amber-500/5 group-hover/item:to-transparent rounded-lg transition-all duration-300" />
+                </div>
+
+                {/* Industry Tag */}
+                <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover/item:opacity-100 transition-all duration-300 transform translate-y-2 group-hover/item:translate-y-0 pointer-events-none">
+                  <span className="text-amber-500 text-[10px] tracking-[0.2em] uppercase font-bold whitespace-nowrap bg-void/90 border border-amber-500/20 px-3 py-1 rounded-full">
+                    {client.industry}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </div>
+
     </section>
   );
 }

@@ -16,11 +16,10 @@ export default function Narrative() {
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
 
   return (
-    <section ref={containerRef} className="py-32 md:py-48 relative overflow-hidden -mt-20 z-10">
+    <section ref={containerRef} className="pt-32 pb-16 md:pt-48 md:pb-24 relative overflow-hidden -mt-20 z-10">
       
-      {/* Background Ambience with Generated Image */}
+      {/* Background Ambience - Removing bg-void overlay to match global flow */}
       <motion.div style={{ y: y }} className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-void/80 z-10" /> {/* Overlay to darken it */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img 
             src="/images/backgrounds/narrative-mesh.png" 
@@ -49,16 +48,13 @@ export default function Narrative() {
               We don't just patch software. We re-engineer your entire operational DNA using Odoo, turning manual chaos into automated clarity.
             </p>
 
+
           </motion.div>
 
         </div>
       </div>
       
-      {/* Decorative vertical line */}
-      <motion.div 
-        style={{ scaleY: scrollYProgress, transformOrigin: "top" }}
-        className="absolute left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-gold-500/30 to-transparent"
-      />
+      {/* Decorative vertical line removed for cleaner look */}
 
     </section>
   );

@@ -6,12 +6,12 @@ import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-void">
+    <section className="relative h-screen flex flex-col items-center justify-center overflow-hidden">
       
-      {/* 1. BACKGROUND - Deep Midnight Blue with Subtle Pulse */}
+      {/* 1. BACKGROUND - Deep Midnight Blue with Subtle Pulse - MOVED TO GLOBAL or KEPT TRANSPARENT */}
+      {/* Moving the contents to be just animated elements on top of global bg */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Base Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#020617] via-[#0B0E17] to-[#020617]" />
+        {/* Base Gradient - REMOVED to allow global consistency */}
         
         {/* Elegant Breathing Glow (Right Side) */}
         <motion.div 
