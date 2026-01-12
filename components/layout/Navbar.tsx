@@ -50,6 +50,7 @@ export default function Navbar() {
           {/* Desktop Nav with Hover Mega Menu */}
           <div className="hidden md:flex items-center gap-8 h-full">
             <Link href="/" className="text-sm font-medium text-gray-400 hover:text-amber-500 hover:scale-110 transition-all duration-300 py-4">Home</Link>
+            <Link href="/portfolio" className="text-sm font-medium text-gray-400 hover:text-amber-500 hover:scale-110 transition-all duration-300 py-4">Portfolio</Link>
             
             <div 
                 className="h-full flex items-center"

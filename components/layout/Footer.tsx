@@ -5,8 +5,13 @@ import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#05080f] border-t border-white/5 pt-20 pb-10">
-      <div className="container mx-auto px-6">
+    <footer className="bg-[#05080f] border-t border-white/5 pt-32 pb-24 relative overflow-hidden">
+      {/* Horizon Glow Effect - Intensified */}
+      <div className="absolute bottom-0 left-0 w-full h-[600px] bg-gradient-to-t from-orange-600/40 via-orange-900/10 to-transparent pointer-events-none" />
+      <div className="absolute -bottom-[50px] left-1/2 -translate-x-1/2 w-[80%] h-[350px] bg-amber-500/30 blur-[150px] pointer-events-none rounded-full" />
+      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-amber-500/50 shadow-[0_0_50px_rgba(245,158,11,0.8)] pointer-events-none" />
+
+      <div className="container mx-auto px-6 relative z-10">
         
         {/* Top Section: CTA & Brand */}
         <div className="flex flex-col md:flex-row justify-between items-start mb-20 pb-12 border-b border-white/5">

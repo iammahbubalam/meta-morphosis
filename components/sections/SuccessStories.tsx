@@ -24,7 +24,7 @@ export default function SuccessStories() {
 
   return (
     <section className="py-32 bg-void relative overflow-hidden">
-      <div className="container mx-auto px-6 mb-16 relative z-10 flex flex-col md:flex-row justify-between items-end gap-8">
+      <div className="container mx-auto px-6 mb-16 relative z-10 flex flex-col md:flex-row justify-between items-center gap-8">
         <div>
            <h2 className="text-3xl md:text-5xl font-bold mb-4">{testimonialsData.heading}</h2>
            <p className="text-xl text-gray-400 max-w-2xl">{testimonialsData.subheading}</p>

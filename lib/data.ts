@@ -176,6 +176,86 @@ export const faqData = [
   },
 ];
 
+export const portfolioData = {
+  heading: "Our Valued Clients",
+  subheading: "Partnering with industry leaders to drive digital transformation.",
+  categories: ["All", "Manufacturing", "Retail", "Textile", "Government", "Service"],
+  items: [
+    {
+      id: 1,
+      title: "Bangladesh Armed Services Board",
+      category: "Government",
+      image: "/icons/logo_basb.png", // Placeholder path
+      description: "Providing free medicine for all retired service personnel and their dependents through 30+ physical stores countrywide.",
+      tags: ["#POS", "#Inventory", "#Odoo"],
+      stats: { value: "30+", label: "Stores" }
+    },
+    {
+      id: 2,
+      title: "Alauddin Textile Mills",
+      category: "Textile",
+      image: "/icons/logo_alauddin.png",
+      description: "A legendary brand in the Textile Industry, using Odoo for over 5 years to manage purchase, stock, sales, and accounting with fixed assets.",
+      tags: ["#Odoo", "#Purchase", "#Inventory", "#Sales", "#Accounting"],
+      stats: { value: "5yr+", label: "Partnership" }
+    },
+    {
+      id: 3,
+      title: "Aristo Food Export Limited",
+      category: "Manufacturing",
+      image: "/icons/logo_aristo.png",
+      description: "One of the largest Auto Rice Mill Manufacturing concerns in the south-west region of Bangladesh.",
+      tags: ["#Manufacturing", "#Purchase", "#Sales", "#Inventory", "#Freight"],
+      stats: { value: "Full", label: "Automation" }
+    },
+    {
+      id: 4,
+      title: "Baatighar",
+      category: "Retail",
+      image: "/icons/logo_baatighar.png",
+      description: "Bangladesh's premium book store and publisher with exceptional hospitality and the widest collection of books and magazines.",
+      tags: ["#Odoo", "#POS", "#eCommerce", "#Website"],
+      stats: { value: "Omni", label: "Channel" }
+    },
+    {
+      id: 5,
+      title: "University Press Limited",
+      category: "Retail",
+      image: "/icons/logo_upl.png",
+      description: "Leading academic publisher ensuring efficient distribution and inventory management across multiple warehouses.",
+      tags: ["#Inventory", "#Accounting", "#Sales"],
+      stats: { value: "Top", label: "Publisher" }
+    },
+    {
+      id: 6,
+      title: "Cross-World Group",
+      category: "Service",
+      image: "/icons/logo_crossworld.png",
+      description: "Diverse conglomerate streamlining operations across multiple business units with a unified ERP solution.",
+      tags: ["#Multi-Company", "#HR", "#Payroll"],
+      stats: { value: "Unified", label: "System" }
+    },
+    {
+      id: 7,
+      title: "Easy Dhaka",
+      category: "Service",
+      image: "/icons/logo_easydhaka.png",
+      description: "Simplifying urban logistics and lifestyle services with a robust backend management system.",
+      tags: ["#Logistics", "#Fleet", "#App"],
+      stats: { value: "Fast", label: "Delivery" }
+    },
+    {
+      id: 8,
+      title: "Q.A. Group",
+      category: "Manufacturing",
+      image: "/icons/logo_qa.png",
+      description: "Enhancing production planning and quality control for high-volume manufacturing lines.",
+      tags: ["#Manufacturing", "#Quality", "#PLM"],
+      stats: { value: "10M+", label: "Units" }
+    }
+  ]
+};
+
 export const ctaData = {
     heading: "Ready to Evolve?",
     subheading: "Stop managing chaos. Start managing growth.",
