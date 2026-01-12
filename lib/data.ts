@@ -493,50 +493,162 @@ export const servicesPageData: Record<string, any> = {
         title: "Full Implementation",
         tagline: "From Blueprint to Live",
         description: "A structured, end-to-end implementation service ensuring your ERP is configured, tested, and deployed with zero data loss.",
-        steps: ["Requirement Analysis", "Configuration", "Data Migration", "UAT & Go-Live"],
-        icon: Layers
+        icon: Layers,
+        challenge: {
+            title: "The Implementation Trap",
+            subtitle: "Why 60% of ERP projects fail.",
+            points: ["Scope Creep due to undefined requirements.", "User Resistance to new workflows.", "Data corruption during migration.", "Vendor Lock-in with proprietary code."]
+        },
+        approach: {
+            title: "The 'Clean Core' Philosophy",
+            description: "We keep the Odoo core untouched whenever possible. This ensures upgradeability, stability, and lower long-term maintenance costs."
+        },
+        process: {
+            title: "The Roadmap",
+            steps: [
+                { number: "01", title: "Discovery", desc: "We map your AS-IS processes and define the TO-BE architecture." },
+                { number: "02", title: "Conference Room Pilot", desc: "We demonstrate Odoo capabilities using YOUR data to validate fit." },
+                { number: "03", title: "Configuration & Dev", desc: "We configure the system and build necessary custom modules." },
+                { number: "04", title: "UAT & Training", desc: "Your users test the system until they can run it blindfolded." },
+                { number: "05", title: "Go-Live", desc: "We flip the switch and provide intensive on-site support." }
+            ]
+        },
+        deliverables: ["Solution Architecture Document", "Configured Production Environment", "User Manuals & SOPs", "Data Migration Report"]
     },
     "legacy-migration": {
         title: "Legacy Migration",
         tagline: "Move Beyond Excel",
         description: "Safely migrate your historical data from Tally, SAP, or spreadsheets into a modern Odoo environment.",
-        steps: ["Data Cleansing", "Mapping Strategy", "Test Import", "Validation"],
-        icon: Database
+        icon: Database,
+        challenge: {
+            title: "Data Gravity",
+            subtitle: "Your data is trapped in the past.",
+            points: ["Historical data format is incompatible with modern schemas.", "Fear of losing financial history.", "Duplicate and dirty data records.", "Downtime during switch-over."]
+        },
+        approach: {
+            title: "Zero Data Loss",
+            description: "We treat data migration as a forensic science. Every record is accounted for, validated, and reconciled before the old system is turned off."
+        },
+        process: {
+            title: "Migration Tunnel",
+            steps: [
+                { number: "01", title: "Extraction", desc: "Export raw data from legacy SQL/Excel sources." },
+                { number: "02", title: "Cleansing", desc: "Deduplicate and normalize master data." },
+                { number: "03", title: "Mapping", desc: "Map legacy fields to Odoo data models." },
+                { number: "04", title: "Test Load", desc: "Run migration scripts in a staging environment." },
+                { number: "05", title: "Validation", desc: "Financial reconciliation (Trial Balance matching)." }
+            ]
+        },
+        deliverables: ["Data Mapping Sheet", "Migration Scripts", "Reconciliation Report", "Legacy Archive DB"]
     },
     "custom-development": {
         title: "Custom Development",
         tagline: "Tailored to Your DNA",
         description: "Though we prefer standard, we code when logic demands it. Python/JS extensions built by Odoo Certified engineers.",
-        steps: ["Technical Spec", "Agile Sprints", "Unit Testing", "Maintenance"],
-        icon: Code2
+        icon: Code2,
+        challenge: {
+            title: "The 'Spaghetti Code' Risk",
+            subtitle: "Customization is a double-edged sword.",
+            points: ["Poorly written code breaks future Odoo upgrades.", "Performance bottlenecks in heavy transactions.", "Security vulnerabilities introduced by amateurs.", "Dependency hell."]
+        },
+        approach: {
+            title: "Modular Engineering",
+            description: "We write code that acts like a native Odoo app. It's modular, documented, and follows strict PEP8 and Odoo guidelines."
+        },
+        process: {
+            title: "Agile Development",
+            steps: [
+                { number: "01", title: "Technical Spec", desc: "Define data models, views, and security rules." },
+                { number: "02", title: "Sprint Coding", desc: "Iterative development in 2-week cycles." },
+                { number: "03", title: "Code Review", desc: "Senior Architects review every Merge Request." },
+                { number: "04", title: "CI/CD Pipeline", desc: "Automated testing and deployment." }
+            ]
+        },
+        deliverables: ["Source Code (Git Access)", "Technical Documentation", "Unit Test Reports", "Module Installer"]
     },
     "corporate-training": {
         title: "Corporate Training",
         tagline: "Empower Your Workforce",
         description: "Hands-on training sessions for your staff to ensure 100% user adoption and system utilization.",
-        steps: ["Role-based Curriculum", "Live Workshops", "Documentation", "Certification"],
-        icon: GraduationCap
+        icon: GraduationCap,
+        challenge: {
+            title: "The Adoption Gap",
+            subtitle: "Software is useless if no one uses it.",
+            points: ["Users revert to old habits (Excel).", "Fear of the new interface.", "Lack of confidence in entering data."]
+        },
+        approach: {
+            title: "Role-Based Learning",
+            description: "We don't teach 'Odoo'. We teach 'How to do YOUR job in Odoo'. The Accountant gets a different training than the Warehouse Manager."
+        },
+        process: {
+            title: "Learning Path",
+            steps: [
+                { number: "01", title: "Skill Gap Analysis", desc: "Identify who needs to know what." },
+                { number: "02", title: "Curriculum Design", desc: "Create role-specific training manuals." },
+                { number: "03", title: "Workshops", desc: "Hands-on 'Do It Yourself' sessions." },
+                { number: "04", title: "Certification", desc: "Internal exams to verify competence." }
+            ]
+        },
+        deliverables: ["Training Videos", "User Manuals (PDF/Web)", "Cheat Sheets", "Certificates"]
     },
     "system-audit": {
         title: "System Audit",
         tagline: "Health Check",
         description: "Performance tuning and code review for existing Odoo databases that are slow or buggy.",
-        steps: ["Code Profiling", "Query Analysis", "Security Scan", "Optimization Report"],
-        icon: Search
+        icon: Search,
+        challenge: {
+            title: "The Slowdown",
+            subtitle: "Why is your ERP crawling?",
+            points: ["Unoptimized database queries.", "Server resource mismatch.", "Bloated log files.", "Custom code memory leaks."]
+        },
+        approach: {
+            title: "Forensic Analysis",
+            description: "We look under the hood using profiling tools to identify exactly which line of code or SQL query is causing the bottleneck."
+        },
+        process: {
+            title: "Audit Workflow",
+            steps: [
+                { number: "01", title: "Monitoring", desc: "Install specialized profiling probes." },
+                { number: "02", title: "Stress Test", desc: "Simulate peak user load." },
+                { number: "03", title: "Analysis", desc: "Review PostgreSQL slow logs and Python stacks." },
+                { number: "04", title: "Remediation", desc: "Fix indexes, rewrite queries, cache results." }
+            ]
+        },
+        deliverables: ["Performance Report", "Security Vulnerability Scan", "Optimization Patch", "Infrastructure Recs"]
     },
     "24-7-support": {
         title: "24/7 Support",
         tagline: "Always On",
         description: "SLA-backed support for critical production environments. We are your technical safety net.",
-        steps: ["Ticket System", "L1/L2/L3 Support", "Patch Management", "Emergency Hotline"],
-        icon: Headphones
+        icon: Headphones,
+        challenge: {
+            title: "Downtime Cost",
+            subtitle: "Every minute offline loses money.",
+            points: ["Server crash during peak sales.", "Critical bug blocks invoicing.", "Data center outage."]
+        },
+        approach: {
+            title: "Proactive Defense",
+            description: "We don't just fix operational issues. We monitor your system 24/7 to prevent them from happening in the first place."
+        },
+        process: {
+            title: "Support Lifecycle",
+            steps: [
+                { number: "01", title: "monitoring", desc: "Automated health checks every 60 seconds." },
+                { number: "02", title: "Triage", desc: "L1 Support filters and prioritizes tickets." },
+                { number: "03", title: "Resolution", desc: "L3 Engineers fix root causes." }
+            ]
+        },
+        deliverables: ["Monthly SLA Report", "Root Cause Analysis (RCA)", "Patch Management", "Dedicated Hotline"]
     },
     "default": {
         title: "Professional Service",
         tagline: "Expert Consulting",
         description: "World-class consultancy to solve your most complex business challenges.",
-        steps: ["Analysis", "Strategy", "Execution", "Review"],
-        icon: Layers
+        icon: Layers,
+        challenge: { title: "Challenge", subtitle: "Problem.", points: ["Point 1"] },
+        approach: { title: "Approach", description: "Method." },
+        process: { title: "Process", steps: [{number: "01", title: "Step", desc: "Desc"}] },
+        deliverables: ["Report"]
     }
 };
 
