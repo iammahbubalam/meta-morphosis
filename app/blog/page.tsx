@@ -3,77 +3,12 @@
 import { motion } from "framer-motion";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import { ArrowUpRight, Clock, User, Tag, ChevronRight } from "lucide-react";
+import { ArrowUpRight, ChevronRight } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
+import { blogPageData } from "@/lib/data";
 
 export default function BlogPage() {
-  const featuredPost = {
-    title: "The Future of Manufacturing: AI-Driven Odoo 18",
-    excerpt: "How the latest artificial intelligence integration in Odoo 18 is revolutionizing shop floor control, predictive maintenance, and supply chain logistics for Bangladeshi industries.",
-    category: "Strategic Insight",
-    author: "Mahbub Alam",
-    readTime: "8 min read",
-    date: "Jan 12, 2026",
-    image: "/images/blog-featured.jpg" // Placeholder will be handled with a gradient div if missing
-  };
-
-  const posts = [
-    { 
-        id: 1,
-        title: "Scaling Retail: 1 to 50 Stores with One Click", 
-        category: "Success Story", 
-        date: "Dec 28, 2025",
-        readTime: "5 min",
-        author: "Tech Team",
-        excerpt: "Inside the architecture that allowed Baatighar to synchronize inventory across the entire country instantly."
-    },
-    { 
-        id: 2,
-        title: "Stop Using Excel for Payroll", 
-        category: "Opinion", 
-        date: "Dec 15, 2025",
-        readTime: "4 min",
-        author: "Finance Lead",
-        excerpt: "Why manual spreadsheets are the silent killer of growth—and the 3-step migration plan to automation."
-    },
-    { 
-        id: 3,
-        title: "Odoo vs SAP: A 2026 Cost Analysis", 
-        category: "Comparison", 
-        date: "Nov 30, 2025",
-        readTime: "12 min",
-        author: "Consulting Div",
-        excerpt: "An honest, data-backed breakdown of TCO, implementation timelines, and ROI for mid-sized enterprises."
-    },
-    { 
-        id: 4,
-        title: "Customizing Modules without Breaking Upgrades", 
-        category: "Engineering", 
-        date: "Nov 12, 2025",
-        readTime: "6 min",
-        author: "Lead Dev",
-        excerpt: "Best practices for writing modular, future-proof code in the Odoo ecosystem."
-    },
-    { 
-        id: 5,
-        title: "The Rise of 'Phygital' Commerce", 
-        category: "Trends", 
-        date: "Oct 24, 2025",
-        readTime: "7 min",
-        author: "Strategy",
-        excerpt: "Merging physical showrooms with digital backends to create seamless customer journeys."
-    },
-    { 
-        id: 6,
-        title: "Cybersecurity in ERP: The 2026 Checklist", 
-        category: "Security", 
-        date: "Oct 10, 2025",
-        readTime: "9 min",
-        author: "SecOps",
-        excerpt: "Protecting your most valuable asset—your data—from the new wave of ransomware attacks."
-    },
-  ];
+  const { heading, subheading, featuredPost, posts } = blogPageData;
 
   return (
     <main className="bg-[#05080f] min-h-screen text-white font-sans selection:bg-amber-500/30">
@@ -92,7 +27,7 @@ export default function BlogPage() {
                         The <span className="text-amber-500">Journal</span>.
                     </h1>
                     <p className="text-xl text-gray-400 mt-4 max-w-xl">
-                        Industry insights, engineering deep dives, and strategic wisdom for the modern enterprise.
+                        {subheading}
                     </p>
                 </div>
                 <div className="mb-4">

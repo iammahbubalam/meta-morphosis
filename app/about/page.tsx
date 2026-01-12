@@ -5,8 +5,11 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Image from "next/image";
 import { Users, CheckCircle2, Globe2, TrendingUp } from "lucide-react";
+import { aboutPageData } from "@/lib/data";
 
 export default function AboutPage() {
+  const { hero, values, stats, team, cities } = aboutPageData;
+
   return (
     <main className="bg-[#05080f] min-h-screen text-white font-sans selection:bg-amber-500/30">
       <Navbar />
@@ -22,15 +25,15 @@ export default function AboutPage() {
             >
                 <div className="flex justify-center mb-6">
                     <span className="px-4 py-2 rounded-full border border-amber-500/20 bg-amber-500/10 text-amber-500 text-xs font-bold uppercase tracking-widest">
-                        Since 2018
+                        {hero.badge}
                     </span>
                 </div>
                 <h1 className="text-6xl md:text-9xl font-bold tracking-tighter font-outfit mb-8 leading-[0.9]">
-                    We Engineer <br />
+                    {hero.title.replace("Business Logic.", "")} <br />
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-neutral-500 via-white to-white">Business Logic.</span>
                 </h1>
                 <p className="text-xl md:text-2xl text-gray-400 max-w-4xl mx-auto font-light leading-relaxed">
-                    Metamorphosis isn't just an Odoo partner. We are the architects of digital permanence for Bangladesh's most ambitious enterprises.
+                    {hero.subtitle}
                 </p>
             </motion.div>
         </div>
@@ -42,21 +45,14 @@ export default function AboutPage() {
       <section className="py-24 border-t border-white/5 bg-[#0a0c12]">
           <div className="container mx-auto px-6">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-                  <ValueCard 
-                    title="Precision" 
-                    desc="We believe in zero-defect delivery. Every line of code, every workflow configuration is tested against extreme edge cases."
-                    number="01"
-                  />
-                  <ValueCard 
-                    title="Transparency" 
-                    desc="No hidden costs. No technical debt. We build systems that you own completely, with code that is clean and documented."
-                    number="02"
-                  />
-                  <ValueCard 
-                    title="Velocity" 
-                    desc="Business moves fast. Our implementation methodology is designed to deploy MVP in weeks, not years."
-                    number="03"
-                  />
+                  {values.map((v) => (
+                      <ValueCard 
+                        key={v.title}
+                        title={v.title} 
+                        desc={v.description} 
+                        number={v.number}
+                      />
+                  ))}
               </div>
           </div>
       </section>
@@ -65,10 +61,9 @@ export default function AboutPage() {
       <section className="py-24 relative overflow-hidden">
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] opacity-20" />
           <div className="container mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-12 text-center relative z-10">
-              <StatItem value="150+" label="Enterprise Projects" />
-              <StatItem value="50+" label="Custom Modules" />
-              <StatItem value="10k+" label="Daily Active Users" />
-              <StatItem value="100%" label="Delivery Rate" />
+              {stats.map((s) => (
+                  <StatItem key={s.label} value={s.value} label={s.label} />
+              ))}
           </div>
       </section>
 
@@ -86,9 +81,9 @@ export default function AboutPage() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                  <TeamCard name="Mahbub Alam" role="Founder & CEO" image="/images/team-1.jpg" />
-                  <TeamCard name="Sarah Khan" role="Head of Engineering" image="/images/team-2.jpg" />
-                  <TeamCard name="David Chen" role="Chief Strategy Officer" image="/images/team-3.jpg" />
+                  {team.map((t) => (
+                      <TeamCard key={t.name} name={t.name} role={t.role} image={t.image} />
+                  ))}
               </div>
           </div>
       </section>
@@ -98,7 +93,7 @@ export default function AboutPage() {
            <div className="container mx-auto px-6 text-center">
                <h2 className="text-4xl font-bold font-outfit mb-12">Reviewing Operations In</h2>
                <div className="flex flex-wrap justify-center gap-4 opacity-80">
-                   {["Dhaka", "Chittagong", "Sylhet", "Singapore", "London", "Dubai"].map(city => (
+                   {cities.map(city => (
                        <span key={city} className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-t from-white/10 to-white/30 hover:to-amber-500 transition-all duration-500 cursor-default">
                            {city}
                        </span>

@@ -58,13 +58,13 @@ export default function Footer() {
            <div>
             <h4 className="font-bold text-white mb-8">Solutions</h4>
             <ul className="space-y-3 text-sm text-gray-500">
-                <FooterLink href="#">Odoo ERP</FooterLink>
-                <FooterLink href="#">CRM & Sales</FooterLink>
-                <FooterLink href="#">Manufacturing (MRP)</FooterLink>
-                <FooterLink href="#">Inventory & WMS</FooterLink>
-                <FooterLink href="#">Accounting & Finance</FooterLink>
-                <FooterLink href="#">HR & Payroll</FooterLink>
-                <FooterLink href="#">eCommerce</FooterLink>
+                <FooterLink href="/solutions/odoo-erp">Odoo ERP</FooterLink>
+                <FooterLink href="/solutions/crm-sales">CRM & Sales</FooterLink>
+                <FooterLink href="/solutions/manufacturing-mrp">Manufacturing (MRP)</FooterLink>
+                <FooterLink href="/solutions/inventory-wms">Inventory & WMS</FooterLink>
+                <FooterLink href="/solutions/accounting-finance">Accounting & Finance</FooterLink>
+                <FooterLink href="/solutions/hr-payroll">HR & Payroll</FooterLink>
+                <FooterLink href="/solutions/ecommerce">eCommerce</FooterLink>
             </ul>
           </div>
 
@@ -72,12 +72,12 @@ export default function Footer() {
            <div>
             <h4 className="font-bold text-white mb-8">Services</h4>
             <ul className="space-y-3 text-sm text-gray-500">
-                <FooterLink href="#">Full Implementation</FooterLink>
-                <FooterLink href="#">Legacy Migration</FooterLink>
-                <FooterLink href="#">Custom Development</FooterLink>
-                <FooterLink href="#">Corporate Training</FooterLink>
-                <FooterLink href="#">System Audit</FooterLink>
-                <FooterLink href="#">24/7 Support</FooterLink>
+                <FooterLink href="/services/full-implementation">Full Implementation</FooterLink>
+                <FooterLink href="/services/legacy-migration">Legacy Migration</FooterLink>
+                <FooterLink href="/services/custom-development">Custom Development</FooterLink>
+                <FooterLink href="/services/corporate-training">Corporate Training</FooterLink>
+                <FooterLink href="/services/system-audit">System Audit</FooterLink>
+                <FooterLink href="/services/24-7-support">24/7 Support</FooterLink>
             </ul>
           </div>
 
@@ -90,7 +90,7 @@ export default function Footer() {
                 <FooterLink href="/about">Our Methodology</FooterLink>
                 <FooterLink href="/careers">Careers</FooterLink>
                 <FooterLink href="/partners">Partnership</FooterLink>
-                <FooterLink href="/blog">Press & Media</FooterLink>
+                <FooterLink href="/about">Press & Media</FooterLink>
             </ul>
           </div>
 
@@ -99,10 +99,10 @@ export default function Footer() {
             <h4 className="font-bold text-white mb-8">Resources</h4>
             <ul className="space-y-3 text-sm text-gray-500">
                 <FooterLink href="/blog">Industry Blog</FooterLink>
-                <FooterLink href="#">Whitepapers</FooterLink>
-                <FooterLink href="#">Odoo Documentation</FooterLink>
-                <FooterLink href="#">Developer API</FooterLink>
-                <FooterLink href="#">Community Forum</FooterLink>
+                <FooterLink href="/blog">Whitepapers</FooterLink>
+                <FooterLink href="https://www.odoo.com/documentation/17.0/">Odoo Documentation</FooterLink>
+                <FooterLink href="/contact">Developer API</FooterLink>
+                <FooterLink href="/contact">Community Forum</FooterLink>
             </ul>
           </div>
 
@@ -110,16 +110,16 @@ export default function Footer() {
            <div>
              <h4 className="font-bold text-white mb-8">Connect</h4>
              <ul className="space-y-3 text-sm text-gray-500 mb-8">
-                <FooterLink href="#">Contact Support</FooterLink>
-                <FooterLink href="#">Sales Inquiry</FooterLink>
-                <FooterLink href="#">Office Locations</FooterLink>
+                <FooterLink href="/contact">Contact Support</FooterLink>
+                <FooterLink href="/contact">Sales Inquiry</FooterLink>
+                <FooterLink href="/contact">Office Locations</FooterLink>
              </ul>
              
              <h4 className="font-bold text-white mb-4">Legal</h4>
              <ul className="space-y-3 text-sm text-gray-500">
-                <FooterLink href="#">Privacy Policy</FooterLink>
-                <FooterLink href="#">Terms of Service</FooterLink>
-                <FooterLink href="#">Security</FooterLink>
+                <FooterLink href="/privacy">Privacy Policy</FooterLink>
+                <FooterLink href="/terms">Terms of Service</FooterLink>
+                <FooterLink href="/terms">Security</FooterLink>
              </ul>
           </div>
         </div>

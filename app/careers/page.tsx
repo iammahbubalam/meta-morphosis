@@ -4,13 +4,10 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { ArrowUpRight } from "lucide-react";
+import { careersPageData } from "@/lib/data";
 
 export default function CareersPage() {
-  const jobs = [
-    { title: "Senior Python Developer", type: "Full-Time", location: "Dhaka (Hybrid)", dept: "Engineering" },
-    { title: "Odoo Implementation Manager", type: "Full-Time", location: "Dhaka", dept: "Consultancy" },
-    { title: "Business Analyst Intern", type: "Internship", location: "Remote", dept: "Product" },
-  ];
+  const { hero, benefits, jobs } = careersPageData;
 
   return (
     <main className="bg-void min-h-screen text-white font-sans selection:bg-amber-500/30">
@@ -24,7 +21,7 @@ export default function CareersPage() {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-5xl md:text-7xl font-bold mb-8 tracking-tight font-outfit"
             >
-                Build the <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">Future</span>
+                {hero.title.split(" ").slice(0,2).join(" ")} <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">{hero.title.split(" ").slice(2).join(" ")}</span>
             </motion.h1>
             <motion.p 
                 initial={{ opacity: 0, y: 20 }}
@@ -32,7 +29,7 @@ export default function CareersPage() {
                 transition={{ delay: 0.1 }}
                 className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed"
             >
-               We are looking for visionaries who want to solve complex problems at scale. Join the team transforming Bangladesh's industrial landscape.
+               {hero.subtitle}
             </motion.p>
         </div>
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-[radial-gradient(circle_at_center,rgba(245,158,11,0.1),transparent_70%)] -z-10 pointer-events-none" />
@@ -41,22 +38,12 @@ export default function CareersPage() {
       {/* Benefits */}
       <section className="py-20 bg-white/5 border-y border-white/10">
           <div className="container mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-              <div>
-                  <h3 className="text-2xl font-bold text-white mb-2">Competitive Pay</h3>
-                  <p className="text-sm text-gray-500">Above market salary & equity options.</p>
-              </div>
-              <div>
-                  <h3 className="text-2xl font-bold text-white mb-2">Remote First</h3>
-                  <p className="text-sm text-gray-500">Work from anywhere options available.</p>
-              </div>
-              <div>
-                  <h3 className="text-2xl font-bold text-white mb-2">Premium Gear</h3>
-                  <p className="text-sm text-gray-500">MacBooks and top-tier peripherals.</p>
-              </div>
-              <div>
-                  <h3 className="text-2xl font-bold text-white mb-2">Continuous Learning</h3>
-                  <p className="text-sm text-gray-500">Paid courses and Odoo certifications.</p>
-              </div>
+              {benefits.map((benefit) => (
+                  <div key={benefit.title}>
+                      <h3 className="text-2xl font-bold text-white mb-2">{benefit.title}</h3>
+                      <p className="text-sm text-gray-500">{benefit.desc}</p>
+                  </div>
+              ))}
           </div>
       </section>
 
