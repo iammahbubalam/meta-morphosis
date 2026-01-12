@@ -48,11 +48,11 @@ export default function MegaMenu({ isOpen }: MegaMenuProps) {
                        <span className="w-8 h-[1px] bg-gold-500"></span> Resources
                    </h3>
                    <div className="space-y-4">
-                      <SimpleLink href="#" label="Case Studies" />
+                      <SimpleLink href="/portfolio" label="Case Studies" />
                       <SimpleLink href="#" label="Documentation" />
                       <SimpleLink href="#" label="Community Forum" />
                       <SimpleLink href="#" label="Developer API" />
-                      <SimpleLink href="#" label="Blog Insights" />
+                      <SimpleLink href="/blog" label="Blog Insights" />
                    </div>
                 </div>
 
