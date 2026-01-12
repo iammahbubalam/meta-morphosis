@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { portfolioData, ctaData } from "@/lib/data";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image"; // Added
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
@@ -19,13 +20,21 @@ export default function PortfolioPage() {
     <main className="bg-void min-h-screen text-white font-sans selection:bg-amber-500/30">
       <Navbar />
       
-      {/* Hero Section - Structural Elegance */}
+      {/* Hero Section - Cinematic Image Background */}
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-32 pb-20">
         
-        {/* Technical Grid Background */}
-        <div className="absolute inset-0 bg-[#05080f]">
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[400px] bg-amber-500/10 blur-[120px] rounded-full pointer-events-none" />
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0">
+            <Image 
+                src="/images/portfolio-hero.png" 
+                alt="Architecture Background" 
+                fill 
+                priority
+                className="object-cover opacity-60"
+            />
+            {/* Gradient Overlays for Readability and Mood */}
+            <div className="absolute inset-0 bg-gradient-to-b from-[#05080f]/90 via-[#05080f]/50 to-[#05080f] mix-blend-multiply" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#05080f] via-transparent to-black/60" />
         </div>
 
         <div className="container mx-auto px-6 relative z-10 text-center">
@@ -35,20 +44,20 @@ export default function PortfolioPage() {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-500 text-xs font-bold uppercase tracking-widest mb-8 backdrop-blur-sm"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-black/40 text-amber-500 text-xs font-bold uppercase tracking-widest mb-8 backdrop-blur-md"
             >
-                <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
-                Trusted Partnership
+                <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse shadow-[0_0_10px_rgba(245,158,11,0.8)]" />
+                Trusted by Industry Leaders
             </motion.div>
 
             <motion.h1 
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
-                className="text-6xl md:text-8xl font-bold mb-8 tracking-tight font-outfit"
+                className="text-6xl md:text-8xl font-bold mb-8 tracking-tight font-outfit drop-shadow-2xl"
             >
                 Our Valued <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-b from-amber-200 via-amber-400 to-amber-700 drop-shadow-[0_0_30px_rgba(245,158,11,0.2)]">
+                <span className="text-transparent bg-clip-text bg-gradient-to-b from-white via-amber-200 to-amber-500 drop-shadow-[0_0_35px_rgba(245,158,11,0.4)]">
                     Clients
                 </span>
             </motion.h1>
@@ -57,9 +66,9 @@ export default function PortfolioPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.8 }}
-                className="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed font-light"
+                className="text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed font-light drop-shadow-md"
             >
-                We take pride in powering the operations of Bangladesh's most visionary enterprises.
+                We take pride in powering the operations of Bangladesh's most visionary enterprises with world-class ERP solutions.
             </motion.p>
         </div>
       </section>
@@ -74,7 +83,7 @@ export default function PortfolioPage() {
                     className={`px-8 py-3 rounded-full border text-sm uppercase tracking-widest font-bold transition-all duration-300 ${
                         filter === cat 
                         ? "bg-amber-500 text-black border-amber-500 scale-105 shadow-[0_0_20px_rgba(245,158,11,0.4)]" 
-                        : "bg-white/5 border-white/10 text-gray-400 hover:text-white hover:border-amber-500/50 hover:bg-white/10"
+                        : "bg-[#1e293b]/80 border-white/20 text-gray-300 hover:text-white hover:border-amber-500/50 hover:bg-[#1e293b] backdrop-blur-md"
                     }`}
                 >
                     {cat}
@@ -86,12 +95,10 @@ export default function PortfolioPage() {
       {/* Client Success Grid */}
       <section className="pb-40">
         <div className="container mx-auto px-6">
-            <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                <AnimatePresence>
-                    {filteredItems.map((item) => (
-                        <ClientCard key={item.id} item={item} />
-                    ))}
-                </AnimatePresence>
+            <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                {filteredItems.map((item) => (
+                    <ClientCard key={item.id} item={item} />
+                ))}
             </motion.div>
         </div>
       </section>
@@ -120,15 +127,15 @@ function ClientCard({ item }: { item: any }) {
     return (
         <motion.div
             layout
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9 }}
-            className="group relative h-full bg-[#0f1219] rounded-2xl border border-white/5 p-8 flex flex-col hover:border-amber-500/50 hover:shadow-[0_0_30px_rgba(245,158,11,0.1)] transition-all duration-500"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="group relative h-full bg-[#0f1219] rounded-2xl border border-white/10 p-8 flex flex-col hover:border-amber-500/50 hover:shadow-[0_0_30px_rgba(245,158,11,0.15)] transition-all duration-300"
         >
             {/* Logo Section (Placeholder for now) */}
             <div className="h-24 mb-8 flex items-center justify-center relative">
-                <div className="w-20 h-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-white/10 group-hover:scale-110 transition-all duration-500">
-                    <span className="text-2xl font-bold text-gray-500 group-hover:text-amber-500 transition-colors">
+                <div className="w-20 h-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-amber-500/10 group-hover:border-amber-500/50 group-hover:scale-110 transition-all duration-500">
+                     <span className="text-2xl font-bold text-gray-500 group-hover:text-amber-500 transition-colors">
                         {item.title.charAt(0)}
                     </span>
                 </div>
@@ -144,12 +151,19 @@ function ClientCard({ item }: { item: any }) {
                 </p>
 
                 {/* Tags */}
-                <div className="flex flex-wrap justify-center gap-2 mt-auto">
+                <div className="flex flex-wrap justify-center gap-2 mb-8">
                     {item.tags.map((tag: string) => (
                         <span key={tag} className="text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-amber-500/10 text-amber-500 border border-amber-500/20">
                             {tag}
                         </span>
                     ))}
+                </div>
+
+                {/* Visible "Action" Button */}
+                <div className="mt-auto pt-6 border-t border-white/5 w-full">
+                    <button className="w-full py-2 bg-white/5 rounded-lg text-xs font-bold uppercase tracking-widest text-gray-300 hover:bg-amber-500 hover:text-black transition-all duration-300 flex items-center justify-center gap-2">
+                        View Project <ArrowUpRight size={12} />
+                    </button>
                 </div>
             </div>
 
