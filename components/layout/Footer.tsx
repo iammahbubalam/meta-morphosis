@@ -85,12 +85,12 @@ export default function Footer() {
            <div>
             <h4 className="font-bold text-white mb-8">Company</h4>
             <ul className="space-y-3 text-sm text-gray-500">
-                <FooterLink href="#">About Metamorphosis</FooterLink>
-                <FooterLink href="#">Success Stories</FooterLink>
-                <FooterLink href="#">Our Methodology</FooterLink>
-                <FooterLink href="#">Careers</FooterLink>
-                <FooterLink href="#">Partnership</FooterLink>
-                <FooterLink href="#">Press & Media</FooterLink>
+                <FooterLink href="/about">About Metamorphosis</FooterLink>
+                <FooterLink href="/portfolio">Success Stories</FooterLink>
+                <FooterLink href="/about">Our Methodology</FooterLink>
+                <FooterLink href="/careers">Careers</FooterLink>
+                <FooterLink href="/partners">Partnership</FooterLink>
+                <FooterLink href="/blog">Press & Media</FooterLink>
             </ul>
           </div>
 
@@ -98,7 +98,7 @@ export default function Footer() {
            <div>
             <h4 className="font-bold text-white mb-8">Resources</h4>
             <ul className="space-y-3 text-sm text-gray-500">
-                <FooterLink href="#">Industry Blog</FooterLink>
+                <FooterLink href="/blog">Industry Blog</FooterLink>
                 <FooterLink href="#">Whitepapers</FooterLink>
                 <FooterLink href="#">Odoo Documentation</FooterLink>
                 <FooterLink href="#">Developer API</FooterLink>
